@@ -5,7 +5,17 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorAccent</item>'
+
+        <item name="android:textColorHint">@color/textDisplayColor</item>
+    </style>
+    
+    <!-- text layout custom style -->
+
+    <style name="TextLabelLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="colorAccent">@color/colorAccent</item>  // Text Color
+        <item name="android:textColorHint">@color/textDisplayColor</item>    // Hint Color
+        <item name="colorControlActivated">@color/textDisplayColor</item>    //Floating label color
     </style>
 
 </resources>

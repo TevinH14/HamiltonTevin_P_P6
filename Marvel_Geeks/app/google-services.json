@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "525876743383",
+    "firebase_url": "https://marvel-geeks.firebaseio.com",
+    "project_id": "marvel-geeks",
+    "storage_bucket": "marvel-geeks.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525876743383:android:5861d94ed134d9e455b492",
+        "android_client_info": {
+          "package_name": "com.example.marvelgeek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525876743383-64llf82apmkl9kb437opeujhtagnkj7q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.marvelgeek",
+            "certificate_hash": "c8669c1177ea81f1d66d3e3b27fafff51b662728"
+          }
+        },
+        {
+          "client_id": "525876743383-vn4m51nvnmgu012ajakp78od994b8ovk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU00yS9WSbkwcMeJ8zYcVHE9JCx60uwzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525876743383-vn4m51nvnmgu012ajakp78od994b8ovk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

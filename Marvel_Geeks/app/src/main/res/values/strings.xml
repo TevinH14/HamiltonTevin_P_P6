@@ -3,4 +3,15 @@
     <string name="sign_up">Sign Up</string>
     <string name="sign_in">SIGN IN</string>
     <string name="todo">TODO</string>
+    <!-- strings are being used in the sign up activity and fragment -->
+    <string name="sign_up_prompt">Please enter your information in the field below to Continue.</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="Verify_email_address">Verify Email Address</string>
+    <string name="password">Password</string>
+    <string name="Verify_password">Verify Password</string>
+    <string name="incorrect_email_password">Your email and password is incorrect</string>
+    <string name="incorrect_email_match">your email do not match</string>
+    <string name="incorrect_password_match">your password do not natch</string>
 </resources>
