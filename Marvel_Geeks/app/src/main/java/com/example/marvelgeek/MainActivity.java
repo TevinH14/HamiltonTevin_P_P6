@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
         getSupportFragmentManager()
                 .beginTransaction()
                 .add(R.id.fl_mainContainer, FragmentMain.newInstance())
