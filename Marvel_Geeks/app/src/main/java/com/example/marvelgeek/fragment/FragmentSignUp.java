@@ -94,7 +94,9 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener, On
                 }
 
                 if(verifiedEmail != null && verifiedPassword != null){
-                mAuth.createUserWithEmailAndPassword(verifiedEmail,verifiedPassword);
+                mAuth.createUserWithEmailAndPassword(verifiedEmail,verifiedPassword)
+                        .addOnCompleteListener(this);
+                mAuth.signInWithEmailAndPassword(verifiedEmail,verifiedPassword);
                 }
             }
         }
@@ -104,11 +106,11 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener, On
     public void onComplete(@NonNull Task task) {
         if (task.isSuccessful()) {
             // Sign in success, update UI with the signed-in user's information
-            Log.d(TAG, "createUserWithEmail:success");
+            Log.i(TAG, "createUserWithEmail:success");
             FirebaseUser user = mAuth.getCurrentUser();
         } else {
             // If sign in fails, display a message to the user.
-            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+            Log.i(TAG, "createUserWithEmail:failure", task.getException());
             Toast.makeText(mContext, "Authentication failed.",
                     Toast.LENGTH_SHORT).show();
 
@@ -125,6 +127,7 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener, On
             return null;
         }
     }
+
     private String verifyUserPassword(String password_one,String password_two){
         ArrayList<String> userData = new ArrayList<>();
         boolean verifyEmailError = false;
