@@ -15,4 +15,5 @@
     <string name="incorrect_email_match">your email do not match</string>
     <string name="incorrect_password_match">your password do not natch</string>
     <string name="welcome_back">Welcome Back!</string>
+    <string name="add_to_favorite_s">Add to Favorite\'s</string>
 </resources>

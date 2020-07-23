@@ -1,5 +1,6 @@
 package com.example.marvelgeek.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.marvelgeek.CharactersActivity;
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.adapters.HomeAdapter;
 import com.squareup.picasso.Picasso;
 
 public class FragmentHome extends Fragment {
-    public FragmentHome() {
-    }
+
+  public static final String EXTRA_SELECTION = "EXTRA_SELECTION";
 
     public static FragmentHome newInstance() {
 
@@ -44,7 +46,7 @@ public class FragmentHome extends Fragment {
             gvHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                    activitySelection(position);
                 }
             });
 
@@ -55,7 +57,9 @@ public class FragmentHome extends Fragment {
 
     private void activitySelection(int pos){
         if(pos == 0){
-
+            Intent charactersIntent = new Intent(getContext(), CharactersActivity.class);
+            charactersIntent.putExtra(EXTRA_SELECTION,0);
+            startActivity(charactersIntent);
         }
     }
 }

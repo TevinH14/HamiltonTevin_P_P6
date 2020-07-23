@@ -9,43 +9,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.marvelgeek.R;
+import com.example.marvelgeek.models.Characters;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-public class HomeAdapter extends BaseAdapter {
-    private  Context mContext = null;
+import java.util.ArrayList;
 
-    private int[] mImageIdArray = {
-            R.drawable.iron_man,
-            R.drawable.hulk_1_cover,
-            R.drawable.arthur_adams,
-            R.drawable.marvel_stories,
-            R.drawable.standard_incredible_event,
-            R.drawable.series};
-
-    private String[] mTitleName = {
-            "Characters",
-            "Comics",
-            "Creators",
-            "Stories",
-            "Events",
-            "Series’s"};
-    public HomeAdapter(Context _context) {
-       mContext = _context;
+public class CharacterAdapter  extends BaseAdapter {
+    private Context mContext;
+    private ArrayList<Characters> mCharactersList;
+    private static final String IMAGE_ENDPOINT = "/portrait_small.jpg";
+    public CharacterAdapter(Context _context, ArrayList<Characters> _charactersList) {
+        mContext =_context;
+        mCharactersList = _charactersList;
     }
 
     @Override
     public int getCount() {
-        if (mImageIdArray != null){
-            return mImageIdArray.length;
+        if (mCharactersList != null){
+            return mCharactersList.size();
         }
-        return 0;
-    }
+        return 0;    }
 
     @Override
     public Object getItem(int position) {
-        if(mImageIdArray != null && mImageIdArray.length > position){
-            return mImageIdArray[position];
+        if( mCharactersList!= null && mCharactersList.size() > position){
+            return mCharactersList.get(position);
         }
         return null;
     }
@@ -66,27 +55,29 @@ public class HomeAdapter extends BaseAdapter {
         }else {
             vh = (ViewHolder) convertView.getTag();
         }
-        if (mImageIdArray != null) {
-            vh.textHolder.setText(mTitleName[position]);
+        if (mCharactersList != null) {
+            Characters character = mCharactersList.get(position);
+            vh.textHolder.setText(character.getCharacterName());
 
             Picasso
                     .get()
-                    .load(mImageIdArray[position])
+                    .load(character.getCharacterUrl()+IMAGE_ENDPOINT)
                     .resize(200,200)
                     .into(vh.imageHolder,new Callback() {
-                @Override
-                public void onSuccess() {
-                }
-                @Override
-                public void onError(Exception e) {
-                    e.printStackTrace();
-                }
-            });
+                        @Override
+                        public void onSuccess() {
+                        }
+                        @Override
+                        public void onError(Exception e) {
+                            e.printStackTrace();
+                        }
+                    });
 
             return convertView;
         }
         return null;
     }
+
 
     static class ViewHolder{
         final ImageView imageHolder;
@@ -98,3 +89,5 @@ public class HomeAdapter extends BaseAdapter {
         }
     }
 }
+
+
