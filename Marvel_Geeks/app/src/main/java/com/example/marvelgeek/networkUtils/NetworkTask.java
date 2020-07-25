@@ -4,6 +4,7 @@ import android.os.AsyncTask;
 
 
 import com.example.marvelgeek.models.Characters;
+import com.example.marvelgeek.models.Marvel;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,7 +12,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class NetworkTask extends AsyncTask<Integer, Integer, ArrayList<Characters>> {
+public class NetworkTask extends AsyncTask<Integer, Integer, ArrayList<Marvel>> {
 
     final private OnFinished mOnFinishedInterface;
 
@@ -21,11 +22,11 @@ public class NetworkTask extends AsyncTask<Integer, Integer, ArrayList<Character
 
     //create a interface to pass and retrieve data to Network Task to download JSON obj
     public interface OnFinished{
-        void OnPost(ArrayList<Characters> charactersArrayList);
+        void OnPost(ArrayList<Marvel> charactersArrayList);
     }
 
     @Override
-    protected ArrayList<Characters> doInBackground(Integer... integers) {
+    protected ArrayList<Marvel> doInBackground(Integer... integers) {
 
         if(integers == null || integers.length <= 0){
             return null;
@@ -44,7 +45,7 @@ public class NetworkTask extends AsyncTask<Integer, Integer, ArrayList<Character
                 JSONObject dataJson = response.getJSONObject("data");
                 JSONArray resultJSONArray = dataJson.getJSONArray("results");
 
-                ArrayList<Characters> charactersArrayList = new ArrayList<>();
+                ArrayList<Marvel> charactersArrayList = new ArrayList<>();
 
                 for (int i = 0; i < resultJSONArray.length(); i++) {
                     JSONObject obj = resultJSONArray.getJSONObject(i);
@@ -68,7 +69,7 @@ public class NetworkTask extends AsyncTask<Integer, Integer, ArrayList<Character
         return null;
     }
     @Override
-    protected void onPostExecute(ArrayList<Characters> characterData) {
+    protected void onPostExecute(ArrayList<Marvel> characterData) {
         mOnFinishedInterface.OnPost(characterData);
     }
 }

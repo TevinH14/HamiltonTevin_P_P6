@@ -50,12 +50,12 @@ public class FragmentCharacterDetail extends Fragment implements View.OnClickLis
         Button btn_fav = fragView.findViewById(R.id.btn_favorite);
         ImageView iv_character = fragView.findViewById(R.id.iv_characterImage_characterDetail);
 
-        tv_name.setText(mCharacter.getCharacterName());
-        tv_description.setText(mCharacter.getmDescription());
+        tv_name.setText(mCharacter.getName());
+        tv_description.setText(mCharacter.getDescription());
         btn_fav.setOnClickListener(this);
         Picasso
                 .get()
-                .load(mCharacter.getCharacterUrl()+IMAGE_ENDPOINT)
+                .load(mCharacter.getImageUrl()+IMAGE_ENDPOINT)
                 .resize(200,200)
                 .into(iv_character,new Callback() {
                     @Override
@@ -75,7 +75,7 @@ public class FragmentCharacterDetail extends Fragment implements View.OnClickLis
                 .child("users")
                 .child(currentUser)
                 .child("favorites")
-                .child(mCharacter.getCharacterName())
-                .setValue(mCharacter.mCharacterId);
+                .child(mCharacter.getName())
+                .setValue(mCharacter.getId());
     }
 }

@@ -1,6 +1,8 @@
 package com.example.marvelgeek.models;
 
-public class Marvel {
+import java.io.Serializable;
+
+public class Marvel implements Serializable {
     private int mId;
     private String mName;
     private String mDescription;

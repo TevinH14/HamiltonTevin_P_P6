@@ -15,16 +15,16 @@ import androidx.fragment.app.Fragment;
 
 import com.example.marvelgeek.HomeActivity;
 import com.example.marvelgeek.R;
+import com.example.marvelgeek.firebaseHelper.UserAuthenticationHelper;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class FragmentSignIn extends Fragment implements View.OnClickListener, OnCompleteListener {
+public class FragmentSignIn extends Fragment implements View.OnClickListener {
     private String TAG = "MARVEL_GEEKS_TEST";
     private Context mContext;
-
 
     private FirebaseAuth mAuth;
     public FragmentSignIn() {
@@ -67,26 +67,15 @@ public class FragmentSignIn extends Fragment implements View.OnClickListener, On
 
             String emailString = et_email.getText().toString();
             String passwordString = et_password.getText().toString();
-            mAuth.signInWithEmailAndPassword(emailString,passwordString)
-                    .addOnCompleteListener(this);
 
-        }
-    }
-
-    @Override
-    public void onComplete(@NonNull Task task) {
-        if (task.isSuccessful()) {
-            // Sign in success, update UI with the signed-in user's information
-            Log.i(TAG, "Signin user With Email:success");
-            FirebaseUser user = mAuth.getCurrentUser();
-            Intent intent = new Intent (mContext, HomeActivity.class);
-            startActivity(intent);
-        } else {
-            // If sign in fails, display a message to the user.
-            Log.i(TAG, "SighInUserWithEmail:failure", task.getException());
-            Toast.makeText(mContext, "Authentication failed.",
-                    Toast.LENGTH_SHORT).show();
-
+            boolean userStatus = UserAuthenticationHelper.signInUser(emailString,passwordString);
+            if(userStatus){
+                Intent intent = new Intent (mContext, HomeActivity.class);
+                startActivity(intent);
+            }else {
+                Toast.makeText(mContext, R.string.incorrect_email_or_password,
+                        Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.models.Characters;
+import com.example.marvelgeek.models.Marvel;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -17,9 +18,9 @@ import java.util.ArrayList;
 
 public class CharacterAdapter  extends BaseAdapter {
     private Context mContext;
-    private ArrayList<Characters> mCharactersList;
+    private ArrayList<Marvel> mCharactersList;
     private static final String IMAGE_ENDPOINT = "/portrait_small.jpg";
-    public CharacterAdapter(Context _context, ArrayList<Characters> _charactersList) {
+    public CharacterAdapter(Context _context, ArrayList<Marvel> _charactersList) {
         mContext =_context;
         mCharactersList = _charactersList;
     }
@@ -56,12 +57,12 @@ public class CharacterAdapter  extends BaseAdapter {
             vh = (ViewHolder) convertView.getTag();
         }
         if (mCharactersList != null) {
-            Characters character = mCharactersList.get(position);
-            vh.textHolder.setText(character.getCharacterName());
+            Marvel obj = mCharactersList.get(position);
+            vh.textHolder.setText(obj.getName());
 
             Picasso
                     .get()
-                    .load(character.getCharacterUrl()+IMAGE_ENDPOINT)
+                    .load(obj.getImageUrl()+IMAGE_ENDPOINT)
                     .resize(200,200)
                     .into(vh.imageHolder,new Callback() {
                         @Override

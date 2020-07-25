@@ -17,16 +17,17 @@ import com.example.marvelgeek.R;
 import com.example.marvelgeek.adapters.CharacterAdapter;
 import com.example.marvelgeek.adapters.HomeAdapter;
 import com.example.marvelgeek.models.Characters;
+import com.example.marvelgeek.models.Marvel;
 
 import java.util.ArrayList;
 
 public class FragmentCharacters extends Fragment {
-    private static ArrayList<Characters> mCharacterList;
+    private static ArrayList<Marvel> mCharacterList;
 
     public static final String EXTRA_SELECTION = "EXTRA_SELECTION";
 
 
-    public static FragmentCharacters newInstance(ArrayList<Characters> _charactersList) {
+    public static FragmentCharacters newInstance(ArrayList<Marvel> _charactersList) {
         mCharacterList = _charactersList;
         Bundle args = new Bundle();
 

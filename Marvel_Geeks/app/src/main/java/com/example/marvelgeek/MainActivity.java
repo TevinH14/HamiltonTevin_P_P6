@@ -6,21 +6,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.marvelgeek.firebaseHelper.UserAuthenticationHelper;
 import com.example.marvelgeek.fragment.FragmentMain;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-
 public class MainActivity extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null){
+        //use auth helper class to check if user is signed in.
+        if(UserAuthenticationHelper.checkUserStatus()){
+            //send user to home screen is if user is signed in.
             Intent homeIntent = new Intent(this, HomeActivity.class);
             startActivity(homeIntent);
         }
@@ -30,10 +27,11 @@ public class MainActivity extends AppCompatActivity {
                     .beginTransaction()
                     .add(R.id.fl_mainContainer, FragmentMain.newInstance())
                     .commit();
-
-            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-            getSupportActionBar().setCustomView(R.layout.action_bar_layout);
-
+            //set app name in the middle of action bar
+            if(getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+                getSupportActionBar().setCustomView(R.layout.action_bar_layout);
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ import android.os.Bundle;
 import com.example.marvelgeek.fragment.FragmentCharacters;
 import com.example.marvelgeek.fragment.FragmentHome;
 import com.example.marvelgeek.models.Characters;
+import com.example.marvelgeek.models.Marvel;
 import com.example.marvelgeek.networkUtils.NetworkTask;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class CharactersActivity extends AppCompatActivity implements NetworkTask
     }
 
     @Override
-    public void OnPost(ArrayList<Characters> charactersArrayList) {
+    public void OnPost(ArrayList<Marvel> charactersArrayList) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fl_Characters, FragmentCharacters.newInstance(charactersArrayList))
