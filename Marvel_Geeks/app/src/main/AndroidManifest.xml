@@ -15,7 +15,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".CharacterDetailActivity"></activity>
+        <activity android:name=".SeriesActivity"></activity>
+        <activity android:name=".EventsActivity" />
+        <activity android:name=".StoriesActivity" />
+        <activity android:name=".CreatorsActivity" />
+        <activity android:name=".ComicsActivity" />
+        <activity android:name=".CharacterDetailActivity" />
         <activity android:name=".CharactersActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SignInActivity" />

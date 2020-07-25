@@ -21,8 +21,6 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
     private FirebaseAuth mAuth;
 
     public static FragmentMain newInstance() {
-
-
         return new FragmentMain();
     }
 
@@ -35,16 +33,14 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mAuth = FirebaseAuth.getInstance();
 
         View currentView = getView();
         if(currentView != null) {
             currentView.findViewById(R.id.btn_signUp_main).setOnClickListener(this);
             currentView.findViewById(R.id.btn_signIn_main).setOnClickListener(this);
-
+            currentView.findViewById(R.id.btn_skip_main).setOnClickListener(this);
         }
     }
-
 
     @Override
     public void onClick(View v) {
@@ -58,5 +54,4 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
         }
         startActivity(userChoiceIntent);
     }
-
 }

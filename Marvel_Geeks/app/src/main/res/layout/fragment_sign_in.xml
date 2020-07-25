@@ -47,7 +47,7 @@
             style="@style/TextLabelLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/first_name"
+            android:hint="@string/email_address"
             android:textColor="@color/textDisplayColor" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -65,7 +65,7 @@
             style="@style/TextLabelLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/first_name"
+            android:hint="@string/Verify_password"
             android:textColor="@color/textDisplayColor" />
     </com.google.android.material.textfield.TextInputLayout>
 

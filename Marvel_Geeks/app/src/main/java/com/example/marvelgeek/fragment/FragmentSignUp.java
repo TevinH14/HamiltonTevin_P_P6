@@ -1,6 +1,7 @@
 package com.example.marvelgeek.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.marvelgeek.HomeActivity;
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.SignUpActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -107,7 +109,8 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener, On
         if (task.isSuccessful()) {
             // Sign in success, update UI with the signed-in user's information
             Log.i(TAG, "createUserWithEmail:success");
-            FirebaseUser user = mAuth.getCurrentUser();
+            Intent homeIntent = new Intent(getContext(), HomeActivity.class);
+            startActivity(homeIntent);
         } else {
             // If sign in fails, display a message to the user.
             Log.i(TAG, "createUserWithEmail:failure", task.getException());

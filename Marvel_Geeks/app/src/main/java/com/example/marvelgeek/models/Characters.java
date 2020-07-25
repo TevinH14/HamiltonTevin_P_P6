@@ -2,32 +2,11 @@ package com.example.marvelgeek.models;
 
 import java.io.Serializable;
 
-public class Characters implements Serializable {
-    public  int mCharacterId;
-    private String mCharacterName;
-    private String mCharacterUrl;
-    private String mDescription;
+public class Characters extends Marvel implements Serializable {
 
-    public Characters(int mCharacterId, String mCharacterName,String mDescription, String mCharacterUrl) {
-        this.mCharacterId = mCharacterId;
-        this.mCharacterName = mCharacterName;
-        this.mCharacterUrl = mCharacterUrl;
-        this.mDescription = mDescription;
+
+    public Characters(int mId, String mName, String mDescription, String mImageUrl) {
+        super(mId, mName, mDescription, mImageUrl);
     }
 
-    public int getCharacterId() {
-        return mCharacterId;
-    }
-
-    public String getCharacterName() {
-        return mCharacterName;
-    }
-
-    public String getCharacterUrl() {
-        return mCharacterUrl;
-    }
-
-    public String getmDescription() {
-        return mDescription;
-    }
 }

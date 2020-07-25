@@ -13,9 +13,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.marvelgeek.CharactersActivity;
+import com.example.marvelgeek.ComicsActivity;
+import com.example.marvelgeek.CreatorsActivity;
+import com.example.marvelgeek.EventsActivity;
 import com.example.marvelgeek.R;
+import com.example.marvelgeek.SeriesActivity;
+import com.example.marvelgeek.StoriesActivity;
 import com.example.marvelgeek.adapters.HomeAdapter;
-import com.squareup.picasso.Picasso;
 
 public class FragmentHome extends Fragment {
 
@@ -56,10 +60,36 @@ public class FragmentHome extends Fragment {
     }
 
     private void activitySelection(int pos){
+        Intent selectionIntent;
         if(pos == 0){
-            Intent charactersIntent = new Intent(getContext(), CharactersActivity.class);
-            charactersIntent.putExtra(EXTRA_SELECTION,0);
-            startActivity(charactersIntent);
+            selectionIntent = new Intent(getContext(), CharactersActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            startActivity(selectionIntent);
+        }else if(pos == 1){
+            selectionIntent = new Intent(getContext(), ComicsActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            startActivity(selectionIntent);
+
+        }else if(pos == 2){
+            selectionIntent = new Intent(getContext(), CreatorsActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            startActivity(selectionIntent);
+
+        }else if(pos == 3){
+            selectionIntent = new Intent(getContext(), StoriesActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            startActivity(selectionIntent);
+
+        }else if(pos == 4){
+            selectionIntent = new Intent(getContext(), EventsActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            startActivity(selectionIntent);
+
+        }else if(pos == 5){
+            selectionIntent = new Intent(getContext(), SeriesActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            startActivity(selectionIntent);
+
         }
     }
 }
