@@ -19,17 +19,17 @@ public class HomeAdapter extends BaseAdapter {
             R.drawable.iron_man,
             R.drawable.hulk_1_cover,
             R.drawable.arthur_adams,
-            R.drawable.marvel_stories,
             R.drawable.standard_incredible_event,
-            R.drawable.series};
+            R.drawable.series ,
+            R.drawable.marvel_stories};
 
     private String[] mTitleName = {
             "Characters",
             "Comics",
             "Creators",
-            "Stories",
             "Events",
-            "Series’s"};
+            "Series’s",
+            "Stories"};
     public HomeAdapter(Context _context) {
        mContext = _context;
     }

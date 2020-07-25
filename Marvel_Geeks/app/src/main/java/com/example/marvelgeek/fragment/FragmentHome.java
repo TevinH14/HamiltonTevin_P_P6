@@ -67,29 +67,28 @@ public class FragmentHome extends Fragment {
             startActivity(selectionIntent);
         }else if(pos == 1){
             selectionIntent = new Intent(getContext(), ComicsActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            selectionIntent.putExtra(EXTRA_SELECTION,1);
             startActivity(selectionIntent);
 
         }else if(pos == 2){
             selectionIntent = new Intent(getContext(), CreatorsActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            selectionIntent.putExtra(EXTRA_SELECTION,2);
             startActivity(selectionIntent);
 
         }else if(pos == 3){
-            selectionIntent = new Intent(getContext(), StoriesActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            selectionIntent = new Intent(getContext(), EventsActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,4);
             startActivity(selectionIntent);
 
         }else if(pos == 4){
-            selectionIntent = new Intent(getContext(), EventsActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            selectionIntent = new Intent(getContext(), StoriesActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,3);
             startActivity(selectionIntent);
 
         }else if(pos == 5){
             selectionIntent = new Intent(getContext(), SeriesActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            selectionIntent.putExtra(EXTRA_SELECTION,5);
             startActivity(selectionIntent);
-
         }
     }
 }

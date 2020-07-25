@@ -18,9 +18,9 @@ import java.util.ArrayList;
 
 public class CharacterAdapter  extends BaseAdapter {
     private Context mContext;
-    private ArrayList<Marvel> mCharactersList;
+    private ArrayList<Characters> mCharactersList;
     private static final String IMAGE_ENDPOINT = "/portrait_small.jpg";
-    public CharacterAdapter(Context _context, ArrayList<Marvel> _charactersList) {
+    public CharacterAdapter(Context _context, ArrayList<Characters> _charactersList) {
         mContext =_context;
         mCharactersList = _charactersList;
     }

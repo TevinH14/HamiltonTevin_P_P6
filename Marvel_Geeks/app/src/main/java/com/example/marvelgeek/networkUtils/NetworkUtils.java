@@ -40,7 +40,7 @@ public class NetworkUtils {
 		return false;
 	}
 	
-	public static String getNetworkData(int _actionRequest) {
+	public static String getMarvelBaseData(int _actionRequest) {
 		String urlString = null;
 		String ts = getTimeStamp();
 		 urlString = BASE_URL

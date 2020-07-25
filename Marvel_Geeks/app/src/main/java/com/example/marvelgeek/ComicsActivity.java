@@ -7,13 +7,12 @@ import android.os.Bundle;
 import com.example.marvelgeek.fragment.FragmentCharacters;
 import com.example.marvelgeek.fragment.FragmentComics;
 import com.example.marvelgeek.fragment.FragmentHome;
-import com.example.marvelgeek.models.Characters;
 import com.example.marvelgeek.models.Marvel;
-import com.example.marvelgeek.networkUtils.NetworkTask;
+import com.example.marvelgeek.networkUtils.NetworkBaseTask;
 
 import java.util.ArrayList;
 
-public class ComicsActivity extends AppCompatActivity implements NetworkTask.OnFinished {
+public class ComicsActivity extends AppCompatActivity implements NetworkBaseTask.OnFinished {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,16 +32,16 @@ public class ComicsActivity extends AppCompatActivity implements NetworkTask.OnF
         startTask(selection);
     }
     private void startTask(int url){
-        NetworkTask task = new NetworkTask(this);
+        NetworkBaseTask task = new NetworkBaseTask(this);
         task.execute(url);
     }
 
 
     @Override
     public void OnPost(ArrayList<Marvel> charactersArrayList) {
-        getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fl_Characters, FragmentCharacters.newInstance(charactersArrayList))
-                .commit();
+//        getSupportFragmentManager()
+//                .beginTransaction()
+//                .replace(R.id.fl_Characters, FragmentCharacters.newInstance(charactersArrayList))
+//                .commit();
     }
 }

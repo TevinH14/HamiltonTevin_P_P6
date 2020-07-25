@@ -22,12 +22,12 @@ import com.example.marvelgeek.models.Marvel;
 import java.util.ArrayList;
 
 public class FragmentCharacters extends Fragment {
-    private static ArrayList<Marvel> mCharacterList;
+    private static ArrayList<Characters> mCharacterList;
 
     public static final String EXTRA_SELECTION = "EXTRA_SELECTION";
 
 
-    public static FragmentCharacters newInstance(ArrayList<Marvel> _charactersList) {
+    public static FragmentCharacters newInstance(ArrayList<Characters> _charactersList) {
         mCharacterList = _charactersList;
         Bundle args = new Bundle();
 
