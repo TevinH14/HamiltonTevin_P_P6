@@ -1,10 +1,12 @@
 package com.example.marvelgeek.fragment;
 
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +15,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.marvelgeek.R;
+import com.example.marvelgeek.adapters.CharacterExtraAdapter;
+import com.example.marvelgeek.firebaseHelper.DatabaseHelper;
 import com.example.marvelgeek.models.Characters;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -20,14 +24,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class FragmentCharacterDetail extends Fragment implements View.OnClickListener {
-    private static final String IMAGE_ENDPOINT = "/portrait_small.jpg";
-    private static DatabaseReference mDatabase;
+    private static final String IMAGE_ENDPOINT = "/standard_xlarge.jpg";
 
     private static Characters mCharacter;
     public static FragmentCharacterDetail newInstance(Characters selectedCharacter) {
         mCharacter = selectedCharacter;
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         Bundle args = new Bundle();
 
         FragmentCharacterDetail fragment = new FragmentCharacterDetail();
@@ -49,9 +54,35 @@ public class FragmentCharacterDetail extends Fragment implements View.OnClickLis
         TextView tv_description = fragView.findViewById(R.id.tv_description_characterDetail);
         Button btn_fav = fragView.findViewById(R.id.btn_favorite);
         ImageView iv_character = fragView.findViewById(R.id.iv_characterImage_characterDetail);
+        GridView gv_extra_display =fragView.findViewById(R.id.gv_characterRelated_display);
+
+        TextView tv_extraLink1 = fragView.findViewById(R.id.tv_LinkOne_cDetail);
+        tv_extraLink1.setMovementMethod(LinkMovementMethod.getInstance());
+        TextView tv_extraLink2 = fragView.findViewById(R.id.tv_LinkTwo_cDetail);
+        tv_extraLink2.setMovementMethod(LinkMovementMethod.getInstance());
+
+        String[] typeArray = mCharacter.getLinkType();
+        String[] urlArray = mCharacter.getLinkUrls();
+
+        if(typeArray[0] != null && urlArray[0] != null){
+            if(!typeArray[0].matches("") && !urlArray[0].matches("")){
+                tv_extraLink1.setText(urlArray[0]);
+            }
+        }
+        if(typeArray[1] != null && urlArray[1] != null){
+            if(!typeArray[1].matches("") && !urlArray[1].matches("")){
+                tv_extraLink2.setText(urlArray[1]);
+            }
+        }
+        CharacterExtraAdapter cea = new CharacterExtraAdapter(getContext(),
+                mCharacter,setUpGridViewNames());
+        gv_extra_display.setAdapter(cea);
 
         tv_name.setText(mCharacter.getName());
-        tv_description.setText(mCharacter.getDescription());
+        if(mCharacter.getDescription() != null || !mCharacter.getDescription().matches("")) {
+            tv_description.setText(mCharacter.getDescription());
+        }
+        else tv_description.setText(R.string.description_not_available);
         btn_fav.setOnClickListener(this);
         Picasso
                 .get()
@@ -66,16 +97,31 @@ public class FragmentCharacterDetail extends Fragment implements View.OnClickLis
                         e.printStackTrace();
                     }
                 });
+
+
     }
 
     @Override
     public void onClick(View v) {
-        String currentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        mDatabase
-                .child("users")
-                .child(currentUser)
-                .child("favorites")
-                .child(mCharacter.getName())
-                .setValue(mCharacter.getId());
+        if(v.getId() == R.id.btn_favorite) {
+            DatabaseHelper.saveCharacter(mCharacter.getName(),mCharacter.getId());
+        }
+    }
+
+    private HashMap<String, Integer> setUpGridViewNames(){
+        HashMap<String, Integer> availableExtras = new HashMap<>();
+        if(mCharacter.getAvailableComics() > 0){
+            availableExtras.put("Comics",R.drawable.hulk_1_cover);
+        }
+        if(mCharacter.getAvailableEvents() > 0){
+            availableExtras.put("Events",R.drawable.standard_incredible_event);
+        }
+        if(mCharacter.getAvailableSeries() > 0){
+            availableExtras.put("Series's",R.drawable.series);
+        }
+        if(mCharacter.getAvailableStories() > 0){
+            availableExtras.put("Stories",R.drawable.marvel_stories);
+        }
+        return availableExtras;
     }
 }

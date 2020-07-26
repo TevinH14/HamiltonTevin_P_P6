@@ -20,7 +20,8 @@
     <string name="blank_email">please don\'t leave email blank</string>
     <string name="blank_password">please don\'t leave password blank</string>
     <string name="blank_name">please don\'t leave first or last name blank</string>
-
+    <string name="description_not_available">Description is currently not available.</string>
+    <string name="other_resources_for_this_character">Other Resources for this character below</string>
 
 
 </resources>

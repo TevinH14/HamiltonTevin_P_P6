@@ -13,10 +13,13 @@ public class Characters extends Marvel {
     private String mStoriesUri;
     private String mEventUri;
 
+    private String[] mLinkType;
+    private String[] mLinkUrls;
+
     public Characters(int mId, String mName, String mDescription, String mImageUrl,
                       int mAvailableComics, int mAvailableSeries, int mAvailableStories,
                       int mAvailableEvents, String mComicUri, String mSeriesUri, String mStoriesUri,
-                      String mEventUri) {
+                      String mEventUri,String[] mLinkType,String[] mLinkUrls) {
 
         super(mId, mName, mDescription, mImageUrl);
         this.mAvailableComics = mAvailableComics;
@@ -27,6 +30,8 @@ public class Characters extends Marvel {
         this.mSeriesUri = mSeriesUri;
         this.mStoriesUri = mStoriesUri;
         this.mEventUri = mEventUri;
+        this.mLinkType = mLinkType;
+        this.mLinkUrls = mLinkUrls;
     }
 
     public int getAvailableComics() {
@@ -60,4 +65,13 @@ public class Characters extends Marvel {
     public String getEventUri() {
         return mEventUri;
     }
+
+    public String[] getLinkType() {
+        return mLinkType;
+    }
+
+    public String[] getLinkUrls() {
+        return mLinkUrls;
+    }
+
 }

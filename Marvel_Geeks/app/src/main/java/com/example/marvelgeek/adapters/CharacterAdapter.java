@@ -30,7 +30,8 @@ public class CharacterAdapter  extends BaseAdapter {
         if (mCharactersList != null){
             return mCharactersList.size();
         }
-        return 0;    }
+        return 0;
+    }
 
     @Override
     public Object getItem(int position) {

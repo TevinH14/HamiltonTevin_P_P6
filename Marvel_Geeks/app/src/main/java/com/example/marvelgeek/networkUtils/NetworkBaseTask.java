@@ -84,7 +84,7 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
                 String charaName = obj.getString("name");
                 String charaDescription = obj.getString("description");
                 JSONObject thumbnailObj = obj.getJSONObject("thumbnail");
-                String url = thumbnailObj.getString("path");
+                String urlImage = thumbnailObj.getString("path");
 
                 String charaComicsUri = "";
                 JSONObject charaComics = obj.getJSONObject("comics");
@@ -113,11 +113,23 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
                 if(availableEvents > 0){
                      charaEventUri = charaEvents.getString("collectionURI");
                 }
+                String[] urlTypeArray = new String[2];
+                String[] urlLinkArray = new String[2];
+                JSONArray urlArrayObj = obj.getJSONArray("urls");
+                for (int j = 0; j < urlArrayObj.length(); j++) {
+                    JSONObject urlObject = urlArrayObj.getJSONObject(j);
+                    String linkType = urlObject.getString("type");
+                    String urlLink = urlObject.getString("url");
+                    if(linkType.matches("detail") || linkType.matches("wiki")){
+                        urlTypeArray[j] = linkType;
+                        urlLinkArray[j] = urlLink;
+                    }
+                }
 
 
-                charactersArrayList.add(new Characters(charaId, charaName, charaDescription,url,
-                        availableComics,availableSeries,availableStories,availableEvents,
-                        charaComicsUri,charaSeriesUri,charaStoriesUri,charaEventUri));
+                charactersArrayList.add(new Characters(charaId, charaName, charaDescription,
+                        urlImage,availableComics,availableSeries,availableStories,availableEvents,
+                        charaComicsUri,charaSeriesUri,charaStoriesUri,charaEventUri,urlTypeArray,urlLinkArray));
             }
             // Update the UI
             return charactersArrayList;

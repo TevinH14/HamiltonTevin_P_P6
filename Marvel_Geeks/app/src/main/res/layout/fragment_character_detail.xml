@@ -1,52 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/iv_characterImage_characterDetail"
-        android:layout_width="216dp"
-        android:layout_height="215dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="69dp"
-        android:layout_marginEnd="143dp"
-        android:contentDescription="@string/todo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tv_name_character"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="29dp"
-        android:textAlignment="center"
-        android:textColor="@color/textDisplayColor"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/iv_characterImage_characterDetail"
-        app:layout_constraintStart_toStartOf="@+id/iv_characterImage_characterDetail"
-        app:layout_constraintTop_toBottomOf="@+id/iv_characterImage_characterDetail" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_favorite"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/add_to_favorite_s"
-        app:layout_constraintEnd_toEndOf="@+id/tv_description_characterDetail"
-        app:layout_constraintStart_toStartOf="@+id/tv_description_characterDetail"
-        app:layout_constraintTop_toBottomOf="@+id/tv_description_characterDetail" />
+        <ImageView
+            android:id="@+id/iv_characterImage_characterDetail"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginTop="32dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_description_characterDetail"
-        android:layout_width="274dp"
-        android:layout_height="103dp"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="@+id/tv_name_character"
-        app:layout_constraintStart_toStartOf="@+id/tv_name_character"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name_character" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tv_name_character"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/textDisplayColor"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_characterImage_characterDetail"
+            app:layout_constraintStart_toStartOf="@+id/iv_characterImage_characterDetail"
+            app:layout_constraintTop_toBottomOf="@+id/iv_characterImage_characterDetail" />
+
+        <TextView
+            android:id="@+id/tv_description_characterDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:textAlignment="center"
+            android:textColor="@color/textDisplayColor"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_character" />
+
+        <Button
+            android:id="@+id/btn_favorite"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:text="@string/add_to_favorite_s"
+            app:layout_constraintEnd_toEndOf="@+id/tv_description_characterDetail"
+            app:layout_constraintStart_toStartOf="@+id/tv_description_characterDetail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_characterDetail" />
+
+        <GridView
+            android:id="@+id/gv_characterRelated_display"
+            android:layout_width="0dp"
+            android:layout_height="496dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:numColumns="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_favorite">
+
+        </GridView>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/other_resources_for_this_character"
+            android:textColor="@color/textDisplayColor"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/gv_characterRelated_display"
+            app:layout_constraintStart_toStartOf="@+id/gv_characterRelated_display"
+            app:layout_constraintTop_toBottomOf="@+id/gv_characterRelated_display" />
+
+        <TextView
+            android:id="@+id/tv_LinkOne_cDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textColor="@color/textDisplayColor"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/textView5"
+            app:layout_constraintStart_toStartOf="@+id/textView5"
+            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/tv_LinkTwo_cDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:textColor="@color/textDisplayColor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/tv_LinkOne_cDetail"
+            app:layout_constraintStart_toStartOf="@+id/tv_LinkOne_cDetail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_LinkOne_cDetail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
