@@ -45,7 +45,8 @@ public class NetworkUtils {
 		String ts = getTimeStamp();
 		 urlString = BASE_URL
 				+MARVEL_ACTIONS[_actionRequest]
-				+"?ts="
+				+"?limit=100" +
+				 "&ts="
 				+ts
 				+"&apikey="
 				+PUBLIC_KEY

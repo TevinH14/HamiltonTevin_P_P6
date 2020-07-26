@@ -22,6 +22,7 @@
     <string name="blank_name">please don\'t leave first or last name blank</string>
     <string name="description_not_available">Description is currently not available.</string>
     <string name="other_resources_for_this_character">Other Resources for this character below</string>
+    <string name="number_of_comics">Number Of Comics:</string>
 
 
 </resources>

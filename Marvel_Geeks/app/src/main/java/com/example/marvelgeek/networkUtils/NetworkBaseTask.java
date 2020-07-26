@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 
 import com.example.marvelgeek.models.Characters;
 import com.example.marvelgeek.models.Comics;
+import com.example.marvelgeek.models.Creators;
 import com.example.marvelgeek.models.Marvel;
 
 import org.json.JSONArray;
@@ -224,21 +225,28 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
             JSONObject dataJson = response.getJSONObject("data");
             JSONArray resultJSONArray = dataJson.getJSONArray("results");
 
-            ArrayList<Marvel> charactersArrayList = new ArrayList<>();
+            ArrayList<Marvel> marvelArrayList = new ArrayList<>();
 
             for (int i = 0; i < resultJSONArray.length(); i++) {
                 JSONObject obj = resultJSONArray.getJSONObject(i);
                 int charaId = obj.getInt("id");
 
-                String charaName = obj.getString("name");
-                String charaDescription = obj.getString("description");
-                JSONObject thumbnailObj = obj.getJSONObject("thumbnail");
-                String url = thumbnailObj.getString("path");
+                String charaName = obj.getString("fullName");
 
-               // charactersArrayList.add(new Characters(charaId, charaName, charaDescription,url));
+                String comicsUri = "";
+                JSONObject comicsObj = obj.getJSONObject("comics");
+                int availableComics = comicsObj.getInt("available");
+
+
+                JSONArray urlArrayObj = obj.getJSONArray("urls");
+                JSONObject urlObj = urlArrayObj.getJSONObject(0);
+                String marvelUrl = urlObj.getString("url");
+
+                marvelArrayList.add(new Creators(charaId, charaName, null,
+                        null,marvelUrl,availableComics));
             }
             // Update the UI
-            return charactersArrayList;
+            return marvelArrayList;
 
         } catch (JSONException e) {
             e.printStackTrace();
