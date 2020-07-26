@@ -16,27 +16,27 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class CharacterAdapter  extends BaseAdapter {
+public class DisplayAdapter extends BaseAdapter {
     private Context mContext;
-    private ArrayList<Characters> mCharactersList;
-    private static final String IMAGE_ENDPOINT = "/portrait_small.jpg";
-    public CharacterAdapter(Context _context, ArrayList<Characters> _charactersList) {
+    private ArrayList<Marvel> mMarvelList;
+    private static final String IMAGE_ENDPOINT = "/standard_xlarge.jpg";
+    public DisplayAdapter(Context _context, ArrayList<Marvel> _charactersList) {
         mContext =_context;
-        mCharactersList = _charactersList;
+        mMarvelList = _charactersList;
     }
 
     @Override
     public int getCount() {
-        if (mCharactersList != null){
-            return mCharactersList.size();
+        if (mMarvelList != null){
+            return mMarvelList.size();
         }
         return 0;
     }
 
     @Override
     public Object getItem(int position) {
-        if( mCharactersList!= null && mCharactersList.size() > position){
-            return mCharactersList.get(position);
+        if( mMarvelList!= null && mMarvelList.size() > position){
+            return mMarvelList.get(position);
         }
         return null;
     }
@@ -57,8 +57,8 @@ public class CharacterAdapter  extends BaseAdapter {
         }else {
             vh = (ViewHolder) convertView.getTag();
         }
-        if (mCharactersList != null) {
-            Marvel obj = mCharactersList.get(position);
+        if (mMarvelList != null) {
+            Marvel obj = mMarvelList.get(position);
             vh.textHolder.setText(obj.getName());
 
             Picasso
@@ -86,8 +86,8 @@ public class CharacterAdapter  extends BaseAdapter {
         final TextView textHolder;
 
         public ViewHolder(View layout) {
-            this.imageHolder = layout.findViewById(R.id.iv_category_home);
-            this.textHolder = layout.findViewById(R.id.tv_title_home);
+            this.imageHolder = layout.findViewById(R.id.iv_category_display);
+            this.textHolder = layout.findViewById(R.id.tv_title_display);
         }
     }
 }

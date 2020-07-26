@@ -93,8 +93,8 @@ public class HomeAdapter extends BaseAdapter {
         final TextView textHolder;
 
         public ViewHolder(View layout) {
-            this.imageHolder = layout.findViewById(R.id.iv_category_home);
-            this.textHolder = layout.findViewById(R.id.tv_title_home);
+            this.imageHolder = layout.findViewById(R.id.iv_category_display);
+            this.textHolder = layout.findViewById(R.id.tv_title_display);
         }
     }
 }

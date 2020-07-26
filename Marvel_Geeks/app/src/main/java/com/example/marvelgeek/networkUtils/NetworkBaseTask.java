@@ -149,21 +149,65 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
             JSONObject dataJson = response.getJSONObject("data");
             JSONArray resultJSONArray = dataJson.getJSONArray("results");
 
-            ArrayList<Marvel> charactersArrayList = new ArrayList<>();
+            ArrayList<Marvel> marvelArrayList = new ArrayList<>();
 
             for (int i = 0; i < resultJSONArray.length(); i++) {
                 JSONObject obj = resultJSONArray.getJSONObject(i);
-                int charaId = obj.getInt("id");
+                int id = obj.getInt("id");
+                String title = obj.getString("title");
+                int issueNum = obj.getInt("issueNumber");
+                String description = obj.getString("description");
 
-                String charaName = obj.getString("name");
-                String charaDescription = obj.getString("description");
+                JSONArray urlArray = obj.getJSONArray("urls");
+                JSONObject urlObj = urlArray.getJSONObject(0);
+                String comicUrl = urlObj.getString("url");
+
+                JSONObject seriesObj = obj.getJSONObject("series");
+                String seriesUri = seriesObj.getString("resourceURI");
+                String seriesName = seriesObj.getString("name");
+
+                JSONArray priceArray = obj.getJSONArray("prices");
+                JSONObject priceObj = priceArray.getJSONObject(0);
+                double prices = priceObj.getDouble("price");
+
+
                 JSONObject thumbnailObj = obj.getJSONObject("thumbnail");
-                String url = thumbnailObj.getString("path");
+                String urlImage = thumbnailObj.getString("path");
 
-                //charactersArrayList.add(new Characters(charaId, charaName, charaDescription,url));
+                String creatorsUri = "";
+                JSONObject creatorsObj = obj.getJSONObject("creators");
+                int availableCreators = creatorsObj.getInt("available");
+                if(availableCreators > 0){
+                    creatorsUri = creatorsObj.getString("collectionURI");
+                }
+
+                String charactersUri = "";
+                JSONObject charactersObj = obj.getJSONObject("characters");
+                int availableCharacters = charactersObj.getInt("available");
+                if(availableCharacters > 0){
+                    charactersUri = charactersObj.getString("collectionURI");
+                }
+
+                String storiesUri = "";
+                JSONObject storiesObj = obj.getJSONObject("stories");
+                int availableStories = storiesObj.getInt("available");
+                if(availableStories > 0) {
+                    storiesUri = storiesObj.getString("collectionURI");
+                }
+
+                String eventUri ="";
+                JSONObject eventsObj = obj.getJSONObject("events");
+                int availableEvents = eventsObj.getInt("available");
+                if(availableEvents > 0){
+                    eventUri = eventsObj.getString("collectionURI");
+                }
+
+                marvelArrayList.add(new Comics(id, title, description,urlImage,comicUrl,
+                        seriesUri,seriesName,prices,issueNum,creatorsUri,charactersUri,storiesUri,
+                        eventUri));
             }
             // Update the UI
-            return charactersArrayList;
+            return marvelArrayList;
 
         } catch (JSONException e) {
             e.printStackTrace();

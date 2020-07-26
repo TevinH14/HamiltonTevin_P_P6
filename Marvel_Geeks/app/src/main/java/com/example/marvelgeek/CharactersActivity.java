@@ -31,23 +31,23 @@ public class CharactersActivity extends AppCompatActivity implements NetworkBase
         startTask(selection);
     }
 
-    private void startTask(int url){
+    private void startTask(int taskNum){
         NetworkBaseTask task = new NetworkBaseTask(this);
-        task.execute(url);
+        task.execute(taskNum);
     }
 
     @Override
     public void OnPost(ArrayList<Marvel> marvelArrayList) {
-        ArrayList<Characters> charactersArrayList = new ArrayList<>();
-        for(Marvel chara :marvelArrayList) {
-            if(chara instanceof Characters){
-                Characters c = (Characters)chara;
-                charactersArrayList.add(c);
-            }
-        }
+//        ArrayList<Characters> charactersArrayList = new ArrayList<>();
+//        for(Marvel chara :marvelArrayList) {
+//            if(chara instanceof Characters){
+//                Characters c = (Characters)chara;
+//                charactersArrayList.add(c);
+//            }
+//        }
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_Characters, FragmentCharacters.newInstance(charactersArrayList))
+                .replace(R.id.fl_Characters, FragmentCharacters.newInstance(marvelArrayList))
                 .commit();
     }
 }
