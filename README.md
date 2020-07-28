@@ -35,6 +35,30 @@ User will have 6 options to choose from characters, comics, creators, stories, e
 -
 User will be given a list of characters in a gridview. when a character image is clicked the user be able to see a detail view of the character information if its available.
 
+###Character detail view
+user will be given an image to see selected character along with description and add button to add their favorite character to the data base. also users will be able to see the comics series and etc that the character was involved in. another feature if users click the first link the will be taken to the marvel website to view related comics where the 2nd lick will provide more info on the character will more detailed information.
+
+-
+
+#COMIC ACTIVITY 
+will provide users with a list of comics displaying image if available and title.
+
+-
+# CREATORS ACTIVITY 
+
+Will give a list of creators when user click on the creators the user will be able to go to the marvel page to see comics the creators was involved in making.
+
+-
+#EVENT ACTIVITY 
+Will give users a list of events in the marvel comic universe.
+
+-
+
+#SERIES'S ACTIVITY
+-
+
+Will provide users with a list of series in the marvel comic book universe.
+
 -
 #Running issues
 -

@@ -77,16 +77,16 @@ public class FragmentHome extends Fragment {
 
         }else if(pos == 3){
             selectionIntent = new Intent(getContext(), EventsActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,4);
-            startActivity(selectionIntent);
-
-        }else if(pos == 4){
-            selectionIntent = new Intent(getContext(), StoriesActivity.class);
             selectionIntent.putExtra(EXTRA_SELECTION,3);
             startActivity(selectionIntent);
 
-        }else if(pos == 5){
+        }else if(pos == 4){
             selectionIntent = new Intent(getContext(), SeriesActivity.class);
+            selectionIntent.putExtra(EXTRA_SELECTION,4);
+            startActivity(selectionIntent);
+
+        }else if(pos == 5){
+            selectionIntent = new Intent(getContext(), StoriesActivity.class);
             selectionIntent.putExtra(EXTRA_SELECTION,5);
             startActivity(selectionIntent);
         }

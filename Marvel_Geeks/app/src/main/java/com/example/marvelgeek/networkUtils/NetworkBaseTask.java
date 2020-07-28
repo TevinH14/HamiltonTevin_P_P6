@@ -6,7 +6,9 @@ import android.os.AsyncTask;
 import com.example.marvelgeek.models.Characters;
 import com.example.marvelgeek.models.Comics;
 import com.example.marvelgeek.models.Creators;
+import com.example.marvelgeek.models.Events;
 import com.example.marvelgeek.models.Marvel;
+import com.example.marvelgeek.models.Series;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -233,7 +235,6 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
 
                 String charaName = obj.getString("fullName");
 
-                String comicsUri = "";
                 JSONObject comicsObj = obj.getJSONObject("comics");
                 int availableComics = comicsObj.getInt("available");
 
@@ -267,14 +268,55 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
 
             for (int i = 0; i < resultJSONArray.length(); i++) {
                 JSONObject obj = resultJSONArray.getJSONObject(i);
-                int charaId = obj.getInt("id");
+                int id = obj.getInt("id");
 
-                String charaName = obj.getString("name");
-                String charaDescription = obj.getString("description");
+                String name = obj.getString("title");
+                String description = obj.getString("description");
+
+
+                JSONArray urlArrayObj = obj.getJSONArray("urls");
+                JSONObject urlObj = urlArrayObj.getJSONObject(0);
+                String marvelUrl = urlObj.getString("url");
+
+                String start = obj.getString("start");
+                String end = obj.getString("end");
+
                 JSONObject thumbnailObj = obj.getJSONObject("thumbnail");
-                String url = thumbnailObj.getString("path");
+                String imageUrl = thumbnailObj.getString("path");
 
-              //  charactersArrayList.add(new Characters(charaId, charaName, charaDescription,url));
+
+                String creatorsUri = "";
+                JSONObject creatorsObj = obj.getJSONObject("creators");
+                int availableCreators = creatorsObj.getInt("available");
+                if(availableCreators > 0){
+                    creatorsUri = creatorsObj.getString("collectionURI");
+                }
+
+                String charactersUri = "";
+                JSONObject charactersObj = obj.getJSONObject("characters");
+                int availableCharacters = charactersObj.getInt("available");
+                if(availableCharacters > 0){
+                    charactersUri = charactersObj.getString("collectionURI");
+                }
+
+
+                String comicsUri = "";
+                JSONObject comicsObj = obj.getJSONObject("comics");
+                int availableComics = comicsObj.getInt("available");
+                if(availableComics >0){
+                    comicsUri = comicsObj.getString("collectionURI");
+                }
+
+                String storiesUri = "";
+                JSONObject storiesObj = obj.getJSONObject("stories");
+                int availableStories = storiesObj.getInt("available");
+                if(availableStories > 0) {
+                    storiesUri = storiesObj.getString("collectionURI");
+                }
+
+              charactersArrayList.add(new Events(id, name, description,imageUrl,start,end,marvelUrl,
+                      availableCreators,availableCharacters,availableComics,availableStories,
+                      creatorsUri,charactersUri,comicsUri,storiesUri));
             }
             // Update the UI
             return charactersArrayList;
@@ -298,12 +340,13 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
 
             for (int i = 0; i < resultJSONArray.length(); i++) {
                 JSONObject obj = resultJSONArray.getJSONObject(i);
-                int charaId = obj.getInt("id");
+                int id = obj.getInt("id");
 
-                String charaName = obj.getString("name");
+                String name = obj.getString("name");
                 String charaDescription = obj.getString("description");
+
                 JSONObject thumbnailObj = obj.getJSONObject("thumbnail");
-                String url = thumbnailObj.getString("path");
+                String imageUrl = thumbnailObj.getString("path");
 
               //  charactersArrayList.add(new Characters(charaId, charaName, charaDescription,url));
             }
@@ -329,14 +372,56 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
 
             for (int i = 0; i < resultJSONArray.length(); i++) {
                 JSONObject obj = resultJSONArray.getJSONObject(i);
-                int charaId = obj.getInt("id");
+                int id = obj.getInt("id");
 
-                String charaName = obj.getString("name");
-                String charaDescription = obj.getString("description");
+                String name = obj.getString("title");
+                String description = obj.getString("description");
+
+
+                JSONArray urlArrayObj = obj.getJSONArray("urls");
+                JSONObject urlObj = urlArrayObj.getJSONObject(0);
+                String marvelUrl = urlObj.getString("url");
+
+                int startYear = obj.getInt("startYear");
+                int endYear = obj.getInt("endYear");
+                String rating = obj.getString("rating");
+                String type = obj.getString("type");
+
                 JSONObject thumbnailObj = obj.getJSONObject("thumbnail");
-                String url = thumbnailObj.getString("path");
+                String imageUrl = thumbnailObj.getString("path");
 
-                //charactersArrayList.add(new Characters(charaId, charaName, charaDescription,url));
+
+                String creatorsUri = "";
+                JSONObject creatorsObj = obj.getJSONObject("creators");
+                int availableCreators = creatorsObj.getInt("available");
+                if(availableCreators > 0){
+                    creatorsUri = creatorsObj.getString("collectionURI");
+                }
+
+                String charactersUri = "";
+                JSONObject charactersObj = obj.getJSONObject("characters");
+                int availableCharacters = charactersObj.getInt("available");
+                if(availableCharacters > 0){
+                    charactersUri = charactersObj.getString("collectionURI");
+                }
+
+                String storiesUri = "";
+                JSONObject storiesObj = obj.getJSONObject("stories");
+                int availableStories = storiesObj.getInt("available");
+                if(availableStories > 0) {
+                    storiesUri = storiesObj.getString("collectionURI");
+                }
+
+                String comicsUri = "";
+                JSONObject comicsObj = obj.getJSONObject("comics");
+                int availableComics = comicsObj.getInt("available");
+                if(availableComics >0){
+                    comicsUri = comicsObj.getString("collectionURI");
+                }
+
+                charactersArrayList.add(new Series(id, name, description,imageUrl,startYear,endYear,
+                        rating,type,marvelUrl,availableCreators,availableCharacters,availableComics,
+                        availableStories,creatorsUri,charactersUri,comicsUri,storiesUri));
             }
             // Update the UI
             return charactersArrayList;
@@ -344,6 +429,7 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
 
         return null;
     }

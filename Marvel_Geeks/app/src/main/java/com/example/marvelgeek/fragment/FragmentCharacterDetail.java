@@ -1,5 +1,7 @@
 package com.example.marvelgeek.fragment;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
@@ -57,9 +59,9 @@ public class FragmentCharacterDetail extends Fragment implements View.OnClickLis
         GridView gv_extra_display =fragView.findViewById(R.id.gv_characterRelated_display);
 
         TextView tv_extraLink1 = fragView.findViewById(R.id.tv_LinkOne_cDetail);
-        tv_extraLink1.setMovementMethod(LinkMovementMethod.getInstance());
+        tv_extraLink1.setOnClickListener(this);
         TextView tv_extraLink2 = fragView.findViewById(R.id.tv_LinkTwo_cDetail);
-        tv_extraLink2.setMovementMethod(LinkMovementMethod.getInstance());
+        tv_extraLink2.setOnClickListener(this);
 
         String[] typeArray = mCharacter.getLinkType();
         String[] urlArray = mCharacter.getLinkUrls();
@@ -105,6 +107,14 @@ public class FragmentCharacterDetail extends Fragment implements View.OnClickLis
     public void onClick(View v) {
         if(v.getId() == R.id.btn_favorite) {
             DatabaseHelper.saveCharacter(mCharacter.getName(),mCharacter.getId());
+        }else if (v.getId() == R.id.tv_LinkOne_cDetail){
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mCharacter.getLinkUrls()[0]));
+            startActivity(browserIntent);
+        } else if(v.getId() == R.id.tv_LinkTwo_cDetail){
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW,
+                    Uri.parse(mCharacter.getLinkUrls()[1]));
+            startActivity(browserIntent);
         }
     }
 

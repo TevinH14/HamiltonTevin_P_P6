@@ -1,33 +1,29 @@
 package com.example.marvelgeek.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.GridView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.marvelgeek.CharacterDetailActivity;
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.adapters.DisplayAdapter;
 import com.example.marvelgeek.models.Marvel;
 
 import java.util.ArrayList;
 
-public class FragmentEvents extends Fragment {
-    public static final String EXTRA_SELECTION = "EXTRA_SELECTION";
+public class FragmentStories extends Fragment {
+    private static ArrayList<Marvel> mMarvelList;
 
-    private static ArrayList<Marvel> mMarvelsList;
-    public static FragmentEvents newInstance(ArrayList<Marvel> _marvelsList) {
-        mMarvelsList = _marvelsList;
+    public static FragmentStories newInstance(ArrayList<Marvel> _marvelList) {
+        mMarvelList = _marvelList;
         Bundle args = new Bundle();
 
-        FragmentEvents fragment = new FragmentEvents();
+        FragmentStories fragment = new FragmentStories();
         fragment.setArguments(args);
         return fragment;
     }
@@ -41,7 +37,6 @@ public class FragmentEvents extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         if(getView() != null && getContext() != null && getArguments() != null){
             GridView gv_character = getView().findViewById(R.id.gv_display);
 
@@ -53,7 +48,7 @@ public class FragmentEvents extends Fragment {
 //                    startActivity(detailIntent);
 //                }
 //            });
-            DisplayAdapter ia = new DisplayAdapter(getContext(),mMarvelsList);
+            DisplayAdapter ia = new DisplayAdapter(getContext(),mMarvelList);
             gv_character.setAdapter(ia);
         }
     }
