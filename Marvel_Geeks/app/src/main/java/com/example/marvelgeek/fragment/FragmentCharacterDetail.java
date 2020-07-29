@@ -3,7 +3,6 @@ package com.example.marvelgeek.fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +19,9 @@ import com.example.marvelgeek.R;
 import com.example.marvelgeek.adapters.CharacterExtraAdapter;
 import com.example.marvelgeek.firebaseHelper.DatabaseHelper;
 import com.example.marvelgeek.models.Characters;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class FragmentCharacterDetail extends Fragment implements View.OnClickListener {
