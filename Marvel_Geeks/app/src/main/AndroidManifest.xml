@@ -15,17 +15,18 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".SeriesActivity"></activity>
-        <activity android:name=".EventsActivity" />
-        <activity android:name=".StoriesActivity" />
-        <activity android:name=".CreatorsActivity" />
-        <activity android:name=".ComicsActivity" />
-        <activity android:name=".CharacterDetailActivity" />
-        <activity android:name=".CharactersActivity" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activitys.ComicDetailActivity"></activity>
+        <activity android:name=".activitys.SeriesActivity" />
+        <activity android:name=".activitys.EventsActivity" />
+        <activity android:name=".activitys.StoriesActivity" />
+        <activity android:name=".activitys.CreatorsActivity" />
+        <activity android:name=".activitys.ComicsActivity" />
+        <activity android:name=".activitys.CharacterDetailActivity" />
+        <activity android:name=".activitys.CharactersActivity" />
+        <activity android:name=".activitys.HomeActivity" />
+        <activity android:name=".activitys.SignInActivity" />
+        <activity android:name=".activitys.SignUpActivity" />
+        <activity android:name=".activitys.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

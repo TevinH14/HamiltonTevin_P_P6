@@ -1,4 +1,4 @@
-package com.example.marvelgeek;
+package com.example.marvelgeek.activitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -10,8 +10,8 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import com.example.marvelgeek.R;
 import com.example.marvelgeek.fragment.FragmentHome;
-import com.squareup.picasso.Picasso;
 
 public class HomeActivity extends AppCompatActivity {
 

@@ -207,7 +207,7 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
 
                 marvelArrayList.add(new Comics(id, title, description,urlImage,comicUrl,
                         seriesUri,seriesName,prices,issueNum,creatorsUri,charactersUri,storiesUri,
-                        eventUri));
+                        eventUri,availableCreators,availableCharacters,availableStories,availableEvents));
             }
             // Update the UI
             return marvelArrayList;

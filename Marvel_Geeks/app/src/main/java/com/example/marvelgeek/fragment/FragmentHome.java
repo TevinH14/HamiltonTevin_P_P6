@@ -12,18 +12,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.marvelgeek.CharactersActivity;
-import com.example.marvelgeek.ComicsActivity;
-import com.example.marvelgeek.CreatorsActivity;
-import com.example.marvelgeek.EventsActivity;
+import com.example.marvelgeek.activitys.CharactersActivity;
+import com.example.marvelgeek.activitys.ComicsActivity;
+import com.example.marvelgeek.activitys.CreatorsActivity;
+import com.example.marvelgeek.activitys.EventsActivity;
 import com.example.marvelgeek.R;
-import com.example.marvelgeek.SeriesActivity;
-import com.example.marvelgeek.StoriesActivity;
+import com.example.marvelgeek.activitys.SeriesActivity;
+import com.example.marvelgeek.activitys.StoriesActivity;
 import com.example.marvelgeek.adapters.HomeAdapter;
 
 public class FragmentHome extends Fragment {
-
-  public static final String EXTRA_SELECTION = "EXTRA_SELECTION";
 
     public static FragmentHome newInstance() {
 
@@ -63,31 +61,31 @@ public class FragmentHome extends Fragment {
         Intent selectionIntent;
         if(pos == 0){
             selectionIntent = new Intent(getContext(), CharactersActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,0);
+            selectionIntent.putExtra(FragmentUtils.HOME_SELECTION,0);
             startActivity(selectionIntent);
         }else if(pos == 1){
             selectionIntent = new Intent(getContext(), ComicsActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,1);
+            selectionIntent.putExtra(FragmentUtils.HOME_SELECTION,1);
             startActivity(selectionIntent);
 
         }else if(pos == 2){
             selectionIntent = new Intent(getContext(), CreatorsActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,2);
+            selectionIntent.putExtra(FragmentUtils.HOME_SELECTION,2);
             startActivity(selectionIntent);
 
         }else if(pos == 3){
             selectionIntent = new Intent(getContext(), EventsActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,3);
+            selectionIntent.putExtra(FragmentUtils.HOME_SELECTION,3);
             startActivity(selectionIntent);
 
         }else if(pos == 4){
             selectionIntent = new Intent(getContext(), SeriesActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,4);
+            selectionIntent.putExtra(FragmentUtils.HOME_SELECTION,4);
             startActivity(selectionIntent);
 
         }else if(pos == 5){
             selectionIntent = new Intent(getContext(), StoriesActivity.class);
-            selectionIntent.putExtra(EXTRA_SELECTION,5);
+            selectionIntent.putExtra(FragmentUtils.HOME_SELECTION,5);
             startActivity(selectionIntent);
         }
     }

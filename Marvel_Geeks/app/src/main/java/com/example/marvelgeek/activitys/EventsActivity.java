@@ -1,35 +1,29 @@
-package com.example.marvelgeek;
+package com.example.marvelgeek.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.marvelgeek.fragment.FragmentComics;
-import com.example.marvelgeek.fragment.FragmentCreators;
+import com.example.marvelgeek.R;
+import com.example.marvelgeek.fragment.FragmentEvents;
 import com.example.marvelgeek.fragment.FragmentHome;
+import com.example.marvelgeek.fragment.FragmentUtils;
 import com.example.marvelgeek.models.Marvel;
 import com.example.marvelgeek.networkUtils.NetworkBaseTask;
 
 import java.util.ArrayList;
 
-public class CreatorsActivity extends AppCompatActivity implements NetworkBaseTask.OnFinished {
+public class EventsActivity extends AppCompatActivity implements NetworkBaseTask.OnFinished {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_creators);
-
+        setContentView(R.layout.activity_events);
         int selection = -1;
 
         if(getIntent() != null) {
-            selection = getIntent().getIntExtra(FragmentHome.EXTRA_SELECTION, -1);
+            selection = getIntent().getIntExtra(FragmentUtils.HOME_SELECTION, -1);
         }
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.fl_creators, FragmentCreators.newInstance(null))
-                .commit();
-
         startTask(selection);
     }
 
@@ -37,12 +31,11 @@ public class CreatorsActivity extends AppCompatActivity implements NetworkBaseTa
         NetworkBaseTask task = new NetworkBaseTask(this);
         task.execute(taskNum);
     }
-
     @Override
     public void OnPost(ArrayList<Marvel> marvelArrayList) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_creators, FragmentCreators.newInstance(marvelArrayList))
+                .add(R.id.fl_event, FragmentEvents.newInstance(marvelArrayList))
                 .commit();
     }
 }

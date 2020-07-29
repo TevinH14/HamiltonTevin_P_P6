@@ -1,9 +1,10 @@
-package com.example.marvelgeek;
+package com.example.marvelgeek.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.marvelgeek.R;
 import com.example.marvelgeek.fragment.FragmentSignIn;
 
 public class SignInActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.marvelgeek;
+package com.example.marvelgeek.activitys;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.marvelgeek.R;
 import com.example.marvelgeek.firebaseHelper.UserAuthenticationHelper;
 import com.example.marvelgeek.fragment.FragmentMain;
 public class MainActivity extends AppCompatActivity {

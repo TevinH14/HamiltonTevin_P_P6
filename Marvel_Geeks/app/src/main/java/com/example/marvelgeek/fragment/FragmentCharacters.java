@@ -12,10 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.marvelgeek.CharacterDetailActivity;
+import com.example.marvelgeek.activitys.CharacterDetailActivity;
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.adapters.DisplayAdapter;
-import com.example.marvelgeek.models.Characters;
 import com.example.marvelgeek.models.Marvel;
 
 import java.util.ArrayList;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
 public class FragmentCharacters extends Fragment {
     private static ArrayList<Marvel> mCharacterList;
 
-    public static final String EXTRA_SELECTION = "EXTRA_SELECTION";
 
 
     public static FragmentCharacters newInstance(ArrayList<Marvel> _charactersList) {
@@ -52,7 +50,7 @@ public class FragmentCharacters extends Fragment {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent detailIntent = new Intent(getContext(), CharacterDetailActivity.class);
-                    detailIntent.putExtra(EXTRA_SELECTION,mCharacterList.get(position));
+                    detailIntent.putExtra(FragmentUtils.CHARACTER_DETAILS,mCharacterList.get(position));
                     startActivity(detailIntent);
                 }
             });
