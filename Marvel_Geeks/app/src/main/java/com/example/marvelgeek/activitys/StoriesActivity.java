@@ -39,7 +39,7 @@ public class StoriesActivity extends AppCompatActivity implements NetworkBaseTas
     public void OnPost(ArrayList<Marvel> marvelArrayList) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fl_stories, FragmentStories.newInstance(marvelArrayList))
+                .replace(R.id.fl_stories, FragmentStories.newInstance(marvelArrayList))
                 .commit();
     }
 }

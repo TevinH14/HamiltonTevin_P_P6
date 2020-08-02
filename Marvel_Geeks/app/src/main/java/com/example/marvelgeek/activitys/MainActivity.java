@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
             setContentView(R.layout.activity_main);
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fl_mainContainer, FragmentMain.newInstance())
+                    .replace(R.id.fl_mainContainer, FragmentMain.newInstance())
                     .commit();
             //set app name in the middle of action bar
             if(getSupportActionBar() != null) {

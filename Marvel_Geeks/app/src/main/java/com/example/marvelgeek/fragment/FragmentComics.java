@@ -1,6 +1,7 @@
 package com.example.marvelgeek.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.marvelgeek.R;
+import com.example.marvelgeek.activitys.ComicDetailActivity;
 import com.example.marvelgeek.adapters.DisplayAdapter;
 import com.example.marvelgeek.models.Marvel;
 
@@ -48,9 +50,9 @@ public class FragmentComics extends Fragment {
             gv_character.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    Intent detailIntent = new Intent(getContext(), CharacterDetailActivity.class);
-//                    detailIntent.putExtra(EXTRA_SELECTION,mCharacterList.get(position));
-//                    startActivity(detailIntent);
+                    Intent detailIntent = new Intent(getContext(), ComicDetailActivity.class);
+                    detailIntent.putExtra(FragmentUtils.COMIC_DETAILS,mComicsList.get(position));
+                    startActivity(detailIntent);
                 }
             });
             DisplayAdapter ia = new DisplayAdapter(getContext(), mComicsList);

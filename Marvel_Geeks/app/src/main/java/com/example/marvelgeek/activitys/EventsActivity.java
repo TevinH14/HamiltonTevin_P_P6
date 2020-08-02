@@ -35,7 +35,7 @@ public class EventsActivity extends AppCompatActivity implements NetworkBaseTask
     public void OnPost(ArrayList<Marvel> marvelArrayList) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fl_event, FragmentEvents.newInstance(marvelArrayList))
+                .replace(R.id.fl_event, FragmentEvents.newInstance(marvelArrayList))
                 .commit();
     }
 }

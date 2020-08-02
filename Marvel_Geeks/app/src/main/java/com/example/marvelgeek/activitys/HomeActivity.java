@@ -25,7 +25,7 @@ public class HomeActivity extends AppCompatActivity {
                 Manifest.permission.INTERNET) == PackageManager.PERMISSION_GRANTED) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.fl_home, FragmentHome.newInstance())
+                    .replace(R.id.fl_home, FragmentHome.newInstance())
                     .commit();
         } else {
             ActivityCompat.requestPermissions(HomeActivity.this,

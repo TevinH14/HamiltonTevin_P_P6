@@ -27,7 +27,7 @@ public class CharactersActivity extends AppCompatActivity implements NetworkBase
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fl_Characters, FragmentCharacters.newInstance(null))
+                .replace(R.id.fl_Characters, FragmentCharacters.newInstance(null))
                 .commit();
 
         startTask(selection);

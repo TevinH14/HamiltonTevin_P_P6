@@ -29,7 +29,7 @@ public class CreatorsActivity extends AppCompatActivity implements NetworkBaseTa
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fl_creators, FragmentCreators.newInstance(null))
+                .replace(R.id.fl_creators, FragmentCreators.newInstance(null))
                 .commit();
 
         startTask(selection);

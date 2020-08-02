@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundColor"
-    tools:context=".activitys.CharactersActivity">
+    tools:context=".activitys.HomeActivity">
 
     <FrameLayout
-        android:id="@+id/fl_Characters"
+        android:id="@+id/fl_home"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"

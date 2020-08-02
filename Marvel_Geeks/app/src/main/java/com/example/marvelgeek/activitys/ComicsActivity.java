@@ -29,7 +29,7 @@ public class ComicsActivity extends AppCompatActivity implements NetworkBaseTask
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fl_comic_container, FragmentComics.newInstance(null))
+                .replace(R.id.fl_comic_container, FragmentComics.newInstance(null))
                 .commit();
 
         startTask(selection);

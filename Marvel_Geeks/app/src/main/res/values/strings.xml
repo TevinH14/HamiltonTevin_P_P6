@@ -23,6 +23,10 @@
     <string name="description_not_available">Description is currently not available.</string>
     <string name="other_resources_for_this_character">Other Resources for this character below</string>
     <string name="number_of_comics">Number Of Comics:</string>
+    <string name="price">Price:</string>
+    <string name="series">Serie\'s</string>
+    <string name="serie_s_name">Series Name</string>
+    <string name="description">Description</string>
 
 
 </resources>

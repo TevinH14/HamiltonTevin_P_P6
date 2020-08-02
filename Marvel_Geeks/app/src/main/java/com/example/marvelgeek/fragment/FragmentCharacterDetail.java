@@ -25,7 +25,6 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 
 public class FragmentCharacterDetail extends Fragment implements View.OnClickListener {
-    private static final String IMAGE_ENDPOINT = "/standard_xlarge.jpg";
 
     private static Characters mCharacter;
     public static FragmentCharacterDetail newInstance(Characters selectedCharacter) {
@@ -83,7 +82,7 @@ public class FragmentCharacterDetail extends Fragment implements View.OnClickLis
         btn_fav.setOnClickListener(this);
         Picasso
                 .get()
-                .load(mCharacter.getImageUrl()+IMAGE_ENDPOINT)
+                .load(mCharacter.getImageUrl()+FragmentUtils.LARGE_IMAGE_ENDPOINT)
                 .resize(200,200)
                 .into(iv_character,new Callback() {
                     @Override

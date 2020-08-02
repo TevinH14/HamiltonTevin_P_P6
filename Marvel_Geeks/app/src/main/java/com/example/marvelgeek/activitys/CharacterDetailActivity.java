@@ -24,7 +24,7 @@ public class CharacterDetailActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fl_characterDetail_container, FragmentCharacterDetail.newInstance(selectedCharacter))
+                .replace(R.id.fl_characterDetail_container, FragmentCharacterDetail.newInstance(selectedCharacter))
                 .commit();
     }
 }

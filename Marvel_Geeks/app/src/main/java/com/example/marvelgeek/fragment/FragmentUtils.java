@@ -15,5 +15,10 @@ public class FragmentUtils {
     public static final String CHARACTER_DETAILS = "CHARACTER_DETAILS";
 
     //COMIC CONST
+    public static final String COMIC_DETAILS = "COMIC_DETAILS";
+
+    //image CONST
+    public static final String LARGE_IMAGE_ENDPOINT = "/standard_xlarge.jpg";
+
 
 }

@@ -16,7 +16,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fl_signUp, FragmentSignUp.newInstance())
+                .replace(R.id.fl_signUp, FragmentSignUp.newInstance())
                 .commit();
     }
 }

@@ -91,4 +91,6 @@ public class Comics extends Marvel{
     public int getAvailableEvents() {
         return mAvailableEvents;
     }
+
+
 }

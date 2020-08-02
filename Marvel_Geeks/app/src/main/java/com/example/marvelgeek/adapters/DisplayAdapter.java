@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.marvelgeek.R;
+import com.example.marvelgeek.fragment.FragmentUtils;
 import com.example.marvelgeek.models.Characters;
 import com.example.marvelgeek.models.Marvel;
 import com.squareup.picasso.Callback;
@@ -19,7 +20,6 @@ import java.util.ArrayList;
 public class DisplayAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<Marvel> mMarvelList;
-    private static final String IMAGE_ENDPOINT = "/standard_xlarge.jpg";
     public DisplayAdapter(Context _context, ArrayList<Marvel> _charactersList) {
         mContext =_context;
         mMarvelList = _charactersList;
@@ -63,7 +63,7 @@ public class DisplayAdapter extends BaseAdapter {
 
             Picasso
                     .get()
-                    .load(obj.getImageUrl()+IMAGE_ENDPOINT)
+                    .load(obj.getImageUrl()+FragmentUtils.LARGE_IMAGE_ENDPOINT)
                     .resize(200,200)
                     .into(vh.imageHolder,new Callback() {
                         @Override

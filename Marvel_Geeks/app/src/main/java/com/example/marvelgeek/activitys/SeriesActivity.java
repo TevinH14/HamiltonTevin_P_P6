@@ -38,7 +38,7 @@ public class SeriesActivity extends AppCompatActivity implements NetworkBaseTask
     public void OnPost(ArrayList<Marvel> marvelArrayList) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fl_series, FragmentSeries.newInstance(marvelArrayList))
+                .replace(R.id.fl_series, FragmentSeries.newInstance(marvelArrayList))
                 .commit();
     }
 }
