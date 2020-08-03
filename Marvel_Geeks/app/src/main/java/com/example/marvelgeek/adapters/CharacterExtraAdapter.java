@@ -17,10 +17,10 @@ import com.squareup.picasso.Picasso;
 import java.util.HashMap;
 
 public class CharacterExtraAdapter extends BaseAdapter {
-    private String[] mTitleArray;
-    private int[] mImageArray;
-    private Context mContext;
-    private Characters mCharacter;
+    private final String[] mTitleArray;
+    private final int[] mImageArray;
+    private final Context mContext;
+    private final Characters mCharacter;
 
     public CharacterExtraAdapter(Context mContext, Characters mCharacter ,
                                  HashMap<String, Integer> availableExtras) {
@@ -52,7 +52,8 @@ public class CharacterExtraAdapter extends BaseAdapter {
         if( mTitleArray!= null && mTitleArray.length > position){
             return mTitleArray[position];
         }
-        return null;    }
+        return null;
+    }
 
     @Override
     public long getItemId(int position) {
@@ -96,14 +97,19 @@ public class CharacterExtraAdapter extends BaseAdapter {
 
     private String getAvailableData(String string){
         String returnString = "";
-        if(string.equals("Comics")){
-            returnString = String.valueOf(mCharacter.getAvailableComics());
-        } else if(string.equals("Events")){
-            returnString = String.valueOf(mCharacter.getAvailableEvents());
-        } else if(string.equals("Series's")){
-            returnString = String.valueOf(mCharacter.getAvailableSeries());
-        } else if(string.equals("Stories")){
-            returnString = String.valueOf(mCharacter.getAvailableStories());
+        switch (string) {
+            case "Comics":
+                returnString = String.valueOf(mCharacter.getAvailableComics());
+                break;
+            case "Events":
+                returnString = String.valueOf(mCharacter.getAvailableEvents());
+                break;
+            case "Series's":
+                returnString = String.valueOf(mCharacter.getAvailableSeries());
+                break;
+            case "Stories":
+                returnString = String.valueOf(mCharacter.getAvailableStories());
+                break;
         }
         return returnString;
     }

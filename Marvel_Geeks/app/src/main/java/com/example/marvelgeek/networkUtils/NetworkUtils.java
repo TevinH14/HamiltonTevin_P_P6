@@ -7,9 +7,9 @@ import android.net.NetworkInfo;
 import org.apache.commons.io.IOUtils;
 
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -41,7 +41,7 @@ public class NetworkUtils {
 	}
 	
 	public static String getMarvelBaseData(int _actionRequest) {
-		String urlString = null;
+		String urlString;
 		String ts = getTimeStamp();
 		 urlString = BASE_URL
 				+MARVEL_ACTIONS[_actionRequest]
@@ -52,10 +52,6 @@ public class NetworkUtils {
 				+PUBLIC_KEY
 				+"&hash="
 				+createHash(ts+PRIVATE_KEY+PUBLIC_KEY);
-
-		if(urlString == null){
-			return null;
-		}
 
 		HttpURLConnection connection = null;
 		String data = null;
@@ -112,14 +108,14 @@ public class NetworkUtils {
 
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
-			byte[] hash = md.digest(message.getBytes("UTF-8"));
+			byte[] hash = md.digest(message.getBytes(StandardCharsets.UTF_8));
 			//converting byte array to Hexadecimal String
 			StringBuilder sb = new StringBuilder(2*hash.length);
 			for(byte b : hash){
 				sb.append(String.format("%02x", b&0xff));
 			}
 			digest = sb.toString();
-		}catch (NoSuchAlgorithmException | UnsupportedEncodingException e){
+		}catch (NoSuchAlgorithmException e){
 			e.printStackTrace();
 		}
 		return digest;

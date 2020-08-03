@@ -23,6 +23,7 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class FragmentCharacterDetail extends Fragment implements View.OnClickListener {
 
@@ -46,54 +47,55 @@ public class FragmentCharacterDetail extends Fragment implements View.OnClickLis
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         View fragView = getView();
-        TextView tv_name = fragView.findViewById(R.id.tv_name_character);
-        TextView tv_description = fragView.findViewById(R.id.tv_description_characterDetail);
-        Button btn_fav = fragView.findViewById(R.id.btn_favorite);
-        ImageView iv_character = fragView.findViewById(R.id.iv_characterImage_characterDetail);
-        GridView gv_extra_display =fragView.findViewById(R.id.gv_characterRelated_display);
+        if(fragView != null) {
+            TextView tv_name = fragView.findViewById(R.id.tv_name_character);
+            TextView tv_description = fragView.findViewById(R.id.tv_description_characterDetail);
+            Button btn_fav = fragView.findViewById(R.id.btn_favorite);
+            ImageView iv_character = fragView.findViewById(R.id.iv_characterImage_characterDetail);
+            GridView gv_extra_display = fragView.findViewById(R.id.gv_characterRelated_display);
 
-        TextView tv_extraLink1 = fragView.findViewById(R.id.tv_LinkOne_cDetail);
-        tv_extraLink1.setOnClickListener(this);
-        TextView tv_extraLink2 = fragView.findViewById(R.id.tv_LinkTwo_cDetail);
-        tv_extraLink2.setOnClickListener(this);
+            TextView tv_extraLink1 = fragView.findViewById(R.id.tv_LinkOne_cDetail);
+            tv_extraLink1.setOnClickListener(this);
+            TextView tv_extraLink2 = fragView.findViewById(R.id.tv_LinkTwo_cDetail);
+            tv_extraLink2.setOnClickListener(this);
 
-        String[] typeArray = mCharacter.getLinkType();
-        String[] urlArray = mCharacter.getLinkUrls();
+            String[] typeArray = mCharacter.getLinkType();
+            String[] urlArray = mCharacter.getLinkUrls();
 
-        if(typeArray[0] != null && urlArray[0] != null){
-            if(!typeArray[0].matches("") && !urlArray[0].matches("")){
-                tv_extraLink1.setText(urlArray[0]);
+            if (typeArray[0] != null && urlArray[0] != null) {
+                if (!typeArray[0].matches("") && !urlArray[0].matches("")) {
+                    tv_extraLink1.setText(urlArray[0]);
+                }
             }
-        }
-        if(typeArray[1] != null && urlArray[1] != null){
-            if(!typeArray[1].matches("") && !urlArray[1].matches("")){
-                tv_extraLink2.setText(urlArray[1]);
+            if (typeArray[1] != null && urlArray[1] != null) {
+                if (!typeArray[1].matches("") && !urlArray[1].matches("")) {
+                    tv_extraLink2.setText(urlArray[1]);
+                }
             }
-        }
-        CharacterExtraAdapter cea = new CharacterExtraAdapter(getContext(),
-                mCharacter,setUpGridViewNames());
-        gv_extra_display.setAdapter(cea);
+            CharacterExtraAdapter cea = new CharacterExtraAdapter(getContext(),
+                    mCharacter, setUpGridViewNames());
+            gv_extra_display.setAdapter(cea);
 
-        tv_name.setText(mCharacter.getName());
-        if(mCharacter.getDescription() != null || !mCharacter.getDescription().matches("")) {
-            tv_description.setText(mCharacter.getDescription());
-        }
-        else tv_description.setText(R.string.description_not_available);
-        btn_fav.setOnClickListener(this);
-        Picasso
-                .get()
-                .load(mCharacter.getImageUrl()+FragmentUtils.LARGE_IMAGE_ENDPOINT)
-                .resize(200,200)
-                .into(iv_character,new Callback() {
-                    @Override
-                    public void onSuccess() {
-                    }
-                    @Override
-                    public void onError(Exception e) {
-                        e.printStackTrace();
-                    }
-                });
+            tv_name.setText(mCharacter.getName());
+            if (mCharacter.getDescription() != null || !Objects.requireNonNull(mCharacter.getDescription()).matches("")) {
+                tv_description.setText(mCharacter.getDescription());
+            } else tv_description.setText(R.string.description_not_available);
+            btn_fav.setOnClickListener(this);
+            Picasso
+                    .get()
+                    .load(mCharacter.getImageUrl() + FragmentUtils.LARGE_IMAGE_ENDPOINT)
+                    .resize(200, 200)
+                    .into(iv_character, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                        }
 
+                        @Override
+                        public void onError(Exception e) {
+                            e.printStackTrace();
+                        }
+                    });
+        }
 
     }
 

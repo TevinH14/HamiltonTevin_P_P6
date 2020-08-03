@@ -1,19 +1,19 @@
 package com.example.marvelgeek.models;
 
 public class Events extends Marvel {
-    private String mStartDate;
-    private String mEndDate;
-    private String mMarvelUrl;
+    private final String mStartDate;
+    private final String mEndDate;
+    private final String mMarvelUrl;
 
-    private int mAvailableCreators;
-    private int mAvailableCharacter;
-    private int mAvailableComic;
-    private int mAvailableStories;
+    private final int mAvailableCreators;
+    private final int mAvailableCharacter;
+    private final int mAvailableComic;
+    private final int mAvailableStories;
 
-    private String mCreatorsUri;
-    private String mCharacterUri;
-    private String mComicUri;
-    private String mStoriesUri;
+    private final String mCreatorsUri;
+    private final String mCharacterUri;
+    private final String mComicUri;
+    private final String mStoriesUri;
 
     public Events(int mId, String mName, String mDescription, String mImageUrl, String mStartDate,
                   String mEndDate, String mMarvelUrl, int mAvailableCreators,

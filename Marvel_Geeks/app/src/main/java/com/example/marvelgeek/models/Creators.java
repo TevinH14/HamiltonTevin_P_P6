@@ -1,8 +1,8 @@
 package com.example.marvelgeek.models;
 
 public class Creators extends Marvel {
-    private String mMarvelLink;
-    private int mAvailableComics;
+    private final String mMarvelLink;
+    private final int mAvailableComics;
 
     public Creators(int mId, String mName, String mDescription, String mImageUrl,String mMarvelLink,
                     int mAvailableComics) {

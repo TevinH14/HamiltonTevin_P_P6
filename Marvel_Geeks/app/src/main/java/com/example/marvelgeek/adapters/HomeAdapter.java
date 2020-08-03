@@ -13,23 +13,21 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 public class HomeAdapter extends BaseAdapter {
-    private  Context mContext = null;
+    private final Context mContext;
 
-    private int[] mImageIdArray = {
+    private final int[] mImageIdArray = {
             R.drawable.iron_man,
             R.drawable.hulk_1_cover,
             R.drawable.arthur_adams,
             R.drawable.standard_incredible_event,
-            R.drawable.series ,
-            R.drawable.marvel_stories};
+            R.drawable.series};
 
-    private String[] mTitleName = {
+    private final String[] mTitleName = {
             "Characters",
             "Comics",
             "Creators",
             "Events",
-            "Series’s",
-            "Stories"};
+            "Series’s"};
     public HomeAdapter(Context _context) {
        mContext = _context;
     }

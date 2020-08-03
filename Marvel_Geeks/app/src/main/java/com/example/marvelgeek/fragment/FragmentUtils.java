@@ -20,5 +20,12 @@ public class FragmentUtils {
     //image CONST
     public static final String LARGE_IMAGE_ENDPOINT = "/standard_xlarge.jpg";
 
+    //EVENT CONST
+    public static final String EVENT_DETAIL = "EVENT_DETAIL";
+
+    //SERIES CONST
+    public static final String SERIES_DETAIL = "SERIES_DETAIL";
+
+
 
 }

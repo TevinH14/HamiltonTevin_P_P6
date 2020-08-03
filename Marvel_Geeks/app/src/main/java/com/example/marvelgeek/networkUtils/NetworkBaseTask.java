@@ -9,6 +9,7 @@ import com.example.marvelgeek.models.Creators;
 import com.example.marvelgeek.models.Events;
 import com.example.marvelgeek.models.Marvel;
 import com.example.marvelgeek.models.Series;
+import com.example.marvelgeek.models.Stories;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -336,22 +337,22 @@ public class NetworkBaseTask extends AsyncTask<Integer, Integer, ArrayList<Marve
             JSONObject dataJson = response.getJSONObject("data");
             JSONArray resultJSONArray = dataJson.getJSONArray("results");
 
-            ArrayList<Marvel> charactersArrayList = new ArrayList<>();
+            ArrayList<Marvel> marvelArrayList = new ArrayList<>();
 
             for (int i = 0; i < resultJSONArray.length(); i++) {
                 JSONObject obj = resultJSONArray.getJSONObject(i);
                 int id = obj.getInt("id");
 
-                String name = obj.getString("name");
-                String charaDescription = obj.getString("description");
+                String name = obj.getString("title");
+                String description = obj.getString("description");
 
                 JSONObject thumbnailObj = obj.getJSONObject("thumbnail");
                 String imageUrl = thumbnailObj.getString("path");
 
-              //  charactersArrayList.add(new Characters(charaId, charaName, charaDescription,url));
+                marvelArrayList.add(new Stories(id, name, description,imageUrl));
             }
             // Update the UI
-            return charactersArrayList;
+            return marvelArrayList;
 
         } catch (JSONException e) {
             e.printStackTrace();

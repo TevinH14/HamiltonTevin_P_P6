@@ -1,6 +1,5 @@
 package com.example.marvelgeek.firebaseHelper;
 
-import android.content.Context;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -8,7 +7,7 @@ import java.util.ArrayList;
 
 public class UserAuthenticationHelper{
     private static final String TAG = "FIREBASE_TEST";
-    private static FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private static final FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
 
     public static void createNewUser(String email, String password){

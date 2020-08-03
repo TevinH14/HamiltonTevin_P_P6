@@ -10,10 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.marvelgeek.activitys.HomeActivity;
+import com.example.marvelgeek.activates.HomeActivity;
 import com.example.marvelgeek.R;
-import com.example.marvelgeek.activitys.SignInActivity;
-import com.example.marvelgeek.activitys.SignUpActivity;
+import com.example.marvelgeek.activates.SignInActivity;
+import com.example.marvelgeek.activates.SignUpActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class FragmentMain extends Fragment implements View.OnClickListener{

@@ -12,12 +12,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.marvelgeek.activitys.HomeActivity;
+import com.example.marvelgeek.activates.HomeActivity;
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.firebaseHelper.DatabaseHelper;
 import com.example.marvelgeek.firebaseHelper.UserAuthenticationHelper;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class FragmentSignUp extends Fragment implements View.OnClickListener {
     private String TAG = "MARVEL_GEEKS_TEST";
@@ -81,12 +83,12 @@ public class FragmentSignUp extends Fragment implements View.OnClickListener {
                 TextInputEditText et_password_two =signUpView.findViewById(R.id.et_password_two);
 
                 //get user input
-                String fName = et_fName.getText().toString();
-                String lName = et_lName.getText().toString();
-                String email_one = et_email_one.getText().toString();
-                String email_two = et_email_two.getText().toString();
-                String pass_one = et_password_one.getText().toString();
-                String pass_two = et_password_two.getText().toString();
+                String fName = Objects.requireNonNull(et_fName.getText()).toString();
+                String lName = Objects.requireNonNull(et_lName.getText()).toString();
+                String email_one = Objects.requireNonNull(et_email_one.getText()).toString();
+                String email_two = Objects.requireNonNull(et_email_two.getText()).toString();
+                String pass_one = Objects.requireNonNull(et_password_one.getText()).toString();
+                String pass_two = Objects.requireNonNull(et_password_two.getText()).toString();
 
 
 

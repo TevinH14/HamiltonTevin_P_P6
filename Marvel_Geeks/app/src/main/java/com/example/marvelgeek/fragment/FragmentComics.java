@@ -1,6 +1,5 @@
 package com.example.marvelgeek.fragment;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.marvelgeek.R;
-import com.example.marvelgeek.activitys.ComicDetailActivity;
+import com.example.marvelgeek.activates.ComicDetailActivity;
 import com.example.marvelgeek.adapters.DisplayAdapter;
 import com.example.marvelgeek.models.Marvel;
 
@@ -22,7 +21,6 @@ import java.util.ArrayList;
 
 public class FragmentComics extends Fragment {
     private static ArrayList<Marvel> mComicsList;
-    private Context mContext;
 
     public static FragmentComics newInstance(ArrayList<Marvel> _comicList) {
 
@@ -43,7 +41,6 @@ public class FragmentComics extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mContext = getContext();
         if (getView() != null && getContext() != null && getArguments() != null) {
             GridView gv_character = getView().findViewById(R.id.gv_display);
 

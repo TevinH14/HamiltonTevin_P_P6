@@ -2,21 +2,21 @@ package com.example.marvelgeek.models;
 
 public class Series extends Marvel {
 
-    private int mStartYear;
-    private int mEndYear;
-    private String mRating;
-    private String mEventType;
-    private String mMarvelLink;
+    private final int mStartYear;
+    private final int mEndYear;
+    private final String mRating;
+    private final String mEventType;
+    private final String mMarvelLink;
 
-    private int mAvailableCreators;
-    private int mAvailableCharacter;
-    private int mAvailableComic;
-    private int mAvailableStories;
+    private final int mAvailableCreators;
+    private final int mAvailableCharacter;
+    private final int mAvailableComic;
+    private final int mAvailableStories;
 
-    private String mCreatorsUri;
-    private String mCharacterUri;
-    private String mComicUri;
-    private String mStoriesUri;
+    private final String mCreatorsUri;
+    private final String mCharacterUri;
+    private final String mComicUri;
+    private final String mStoriesUri;
 
     public Series(int mId, String mName, String mDescription, String mImageUrl, int mStartYear,
                   int mEndYear, String mRating, String mEventType, String mMarvelLink,

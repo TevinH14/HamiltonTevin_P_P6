@@ -5,8 +5,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DatabaseHelper {
-    private static DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-    private static String mCurrentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
+    private static final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private static final String mCurrentUser = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
 
 

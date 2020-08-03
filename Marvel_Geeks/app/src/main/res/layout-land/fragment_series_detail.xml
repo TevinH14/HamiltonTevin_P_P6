@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_seriesDetail"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_marginStart="141dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="142dp"
+            android:contentDescription="@string/todo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tv_name_seriesDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textAlignment="center"
+            android:textColor="@color/textDisplayColor"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="@+id/iv_seriesDetail"
+            app:layout_constraintStart_toStartOf="@+id/iv_seriesDetail"
+            app:layout_constraintTop_toBottomOf="@+id/iv_seriesDetail" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/start_year"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintStart_toStartOf="@+id/tv_name_seriesDetail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_seriesDetail" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/end_year"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintEnd_toStartOf="@+id/tv_endYear"
+            app:layout_constraintTop_toTopOf="@+id/tv_endYear" />
+
+        <TextView
+            android:id="@+id/tv_startYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintStart_toEndOf="@+id/textView6"
+            app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/tv_endYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name_seriesDetail"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_seriesDetail" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/rating"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <TextView
+            android:id="@+id/tv_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/tv_eventType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintEnd_toEndOf="@+id/tv_endYear"
+            app:layout_constraintTop_toBottomOf="@+id/tv_endYear" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/event_type"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintEnd_toStartOf="@+id/tv_eventType"
+            app:layout_constraintTop_toTopOf="@+id/tv_eventType" />
+
+        <GridView
+            android:id="@+id/gv_seriesExtra_display"
+            android:layout_width="0dp"
+            android:layout_height="496dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="32dp"
+            android:numColumns="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/link_below_provide_extra_info"
+            android:textColor="@color/textDisplayColor"
+            app:layout_constraintEnd_toEndOf="@+id/gv_seriesExtra_display"
+            app:layout_constraintStart_toStartOf="@+id/gv_seriesExtra_display"
+            app:layout_constraintTop_toBottomOf="@+id/gv_seriesExtra_display" />
+
+        <TextView
+            android:id="@+id/tv_link_seriesDetail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="32dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_bright"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView19"
+            app:layout_constraintStart_toStartOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

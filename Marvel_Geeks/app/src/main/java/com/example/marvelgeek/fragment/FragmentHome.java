@@ -12,13 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.marvelgeek.activitys.CharactersActivity;
-import com.example.marvelgeek.activitys.ComicsActivity;
-import com.example.marvelgeek.activitys.CreatorsActivity;
-import com.example.marvelgeek.activitys.EventsActivity;
+import com.example.marvelgeek.activates.CharactersActivity;
+import com.example.marvelgeek.activates.ComicsActivity;
+import com.example.marvelgeek.activates.CreatorsActivity;
+import com.example.marvelgeek.activates.EventsActivity;
 import com.example.marvelgeek.R;
-import com.example.marvelgeek.activitys.SeriesActivity;
-import com.example.marvelgeek.activitys.StoriesActivity;
+import com.example.marvelgeek.activates.SeriesActivity;
+import com.example.marvelgeek.activates.StoriesActivity;
 import com.example.marvelgeek.adapters.HomeAdapter;
 
 public class FragmentHome extends Fragment {
@@ -86,7 +86,7 @@ public class FragmentHome extends Fragment {
         }else if(pos == 5){
             selectionIntent = new Intent(getContext(), StoriesActivity.class);
             selectionIntent.putExtra(FragmentUtils.HOME_SELECTION,5);
-            startActivity(selectionIntent);
+            //startActivity(selectionIntent);
         }
     }
 }

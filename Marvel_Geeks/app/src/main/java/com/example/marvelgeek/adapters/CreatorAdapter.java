@@ -9,15 +9,12 @@ import android.widget.TextView;
 
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.models.Creators;
-import com.example.marvelgeek.models.Marvel;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class CreatorAdapter extends BaseAdapter {
-    private ArrayList<Creators> mCreatorList;
-    private Context mContext;
+    private final ArrayList<Creators> mCreatorList;
+    private final Context mContext;
 
     public CreatorAdapter(ArrayList<Creators> _creatorList, Context mContext) {
         mCreatorList = _creatorList;

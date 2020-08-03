@@ -3,10 +3,10 @@ package com.example.marvelgeek.models;
 import java.io.Serializable;
 
 public class Marvel implements Serializable {
-    private int mId;
-    private String mName;
-    private String mDescription;
-    private String mImageUrl;
+    private final int mId;
+    private final String mName;
+    private final String mDescription;
+    private final String mImageUrl;
 
     public Marvel(int mId, String mName, String mDescription,String mImageUrl) {
         this.mId = mId;

@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,7 +14,9 @@ import androidx.fragment.app.Fragment;
 
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.adapters.DisplayAdapter;
+import com.example.marvelgeek.adapters.StoriesAdapter;
 import com.example.marvelgeek.models.Marvel;
+import com.example.marvelgeek.models.Stories;
 
 import java.util.ArrayList;
 
@@ -37,19 +41,21 @@ public class FragmentStories extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        if(getView() != null && getContext() != null && getArguments() != null){
-            GridView gv_character = getView().findViewById(R.id.gv_display);
+        if(getView() != null && getContext() != null && mMarvelList != null ){
+            View fragView = getView();
 
-//            gv_character.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                    Intent detailIntent = new Intent(getContext(), CharacterDetailActivity.class);
-//                    detailIntent.putExtra(EXTRA_SELECTION,mMarvelsList.get(position));
-//                    startActivity(detailIntent);
-//                }
-//            });
-            DisplayAdapter ia = new DisplayAdapter(getContext(),mMarvelList);
-            gv_character.setAdapter(ia);
+            ListView lv_stories = fragView.findViewById(R.id.lv_stories);
+            ArrayAdapter<String> aa = new ArrayAdapter<>(getContext(),android.R.layout.simple_list_item_1,getStoriesName());
+            lv_stories.setAdapter(aa);
+
         }
+    }
+
+    private String[] getStoriesName(){
+       String[] storiesName = new String[mMarvelList.size()];
+        for (int i = 0; i < mMarvelList.size(); i++) {
+            storiesName[i] = mMarvelList.get(i).getName();
+        }
+        return storiesName;
     }
 }

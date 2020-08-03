@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.marvelgeek.activitys.CharacterDetailActivity;
+import com.example.marvelgeek.activates.CharacterDetailActivity;
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.adapters.DisplayAdapter;
 import com.example.marvelgeek.models.Marvel;

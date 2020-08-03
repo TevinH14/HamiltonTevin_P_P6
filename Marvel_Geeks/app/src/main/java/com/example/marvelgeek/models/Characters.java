@@ -1,20 +1,18 @@
 package com.example.marvelgeek.models;
 
-import java.io.Serializable;
-
 public class Characters extends Marvel {
-    private int mAvailableComics;
-    private int mAvailableSeries;
-    private int mAvailableStories;
-    private int mAvailableEvents;
+    private final int mAvailableComics;
+    private final int mAvailableSeries;
+    private final int mAvailableStories;
+    private final int mAvailableEvents;
 
-    private String mComicUri;
-    private String mSeriesUri;
-    private String mStoriesUri;
-    private String mEventUri;
+    private final String mComicUri;
+    private final String mSeriesUri;
+    private final String mStoriesUri;
+    private final String mEventUri;
 
-    private String[] mLinkType;
-    private String[] mLinkUrls;
+    private final String[] mLinkType;
+    private final String[] mLinkUrls;
 
     public Characters(int mId, String mName, String mDescription, String mImageUrl,
                       int mAvailableComics, int mAvailableSeries, int mAvailableStories,

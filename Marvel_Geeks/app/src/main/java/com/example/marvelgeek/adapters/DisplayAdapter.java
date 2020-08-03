@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.example.marvelgeek.R;
 import com.example.marvelgeek.fragment.FragmentUtils;
-import com.example.marvelgeek.models.Characters;
 import com.example.marvelgeek.models.Marvel;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -18,8 +17,8 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class DisplayAdapter extends BaseAdapter {
-    private Context mContext;
-    private ArrayList<Marvel> mMarvelList;
+    private final Context mContext;
+    private final ArrayList<Marvel> mMarvelList;
     public DisplayAdapter(Context _context, ArrayList<Marvel> _charactersList) {
         mContext =_context;
         mMarvelList = _charactersList;
